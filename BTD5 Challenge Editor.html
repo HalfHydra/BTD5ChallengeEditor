@@ -245,6 +245,7 @@
 		var nk_description = "";
 		var LockedTowers = [];
 		var LockedUpgrades = [];
+
 	//Game Properties
 		var TargetRound = 0;
 		var CanSave = false;
@@ -256,6 +257,7 @@
 		var BlockedLabUpgrades = [];
 		var BlockedSpecialties = [];
 		var BloonLevelOffsets = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
 		//Setup
 		var Setup = [];
 		var Towers = [];
@@ -270,6 +272,7 @@
 		var MonkeyMoney = 500;
 		var XP = 0;
 		var MonkeyMoneyMultiplier = 1;
+
 	//Special Coniditions
 		//Unknown
 		var RoundStep = 1.0;
@@ -277,22 +280,31 @@
 		var SpeedModifier = 1.0;
 		var PriceModifier = 1.0;
 		var SellPriceModifier = 0.8;
+
 		//The Crucible
 		var WaterToCrucible = false;
+
 		//Mix N Match
 		var FreeTowersSecondRound = false;
+
 		//No Escape
 		var LoseLivesTimer = 1;
 		var LoseLivesAmount = 1;
 		var LoseLivesGracePeriod = 30; //in seconds
+
 		//Wizard Lord
 		var ConsumeMostExpensiveTowerRounds = 2;
+
 		//FastUpgrades
 		var TowersAutoUpgrade = false;
+
 		//Short Lived
 		var TowerLifespan = -1;
+
 		//Covert Pops
 		var BloonsForcedCamo = [];
+
+
 		//EXTRA FOR CODE
 		var map = "monkey_lane";
 		var mapnames = ["monkey_lane", "bloom", "present_delivery", "rabbit_holes", "snowy_backyard", "sprint_track", "express_shipping", "checkers", "skull_peak", "lobby", "3_times_around", "grotto", "patch", "hedge_maze", "fireworks", "brick_wall", "z_factor", "maze", "frozen_lake", "roswell", "space_truckin", "walk_in_the_park", "ancient_tomb", "hearthside", "six_feet", "river_rapids", "wattle_trees", "pyramids", "dune_sea", "lava_fields", "ice_flow", "country_road", "jungle", "workshop", "bloon_of_clubs", "archipelago", "crop_circles", "slalom", "stream", "dock_side", "villageshore", "trick_or_treat", "battle_knot","candyland","crypt_keeper", "long_range", "water_hazard", "rink_revenge", "challenger_deep", "scorched_earth", "u_turn","the_great_divide","the_eye","one_direction", "lightning_scar","go_with_the_flow","mount_magma","siege","double_double_crossover","tunnels","castle","against_the_clock","drag_strip","canyon","treetops","runway","down_the_drain","benguela","web","forestpath","tar_pit","main_street","radioactive"];
@@ -308,8 +320,11 @@
 		var buildingnames = ["AcePrivateHangar", "AlsCustomChippers", "BombingRange", "BoomerangDojo", "DartlingAmmoDump", "DartTrainingFacility", "EngineersWorkshop", "GlueSupplyDepot", "HeloHangar", "IceFortress", "MageSpire", "MortarEmplacement", "NinjaAcademy", "PirateCove", "RifleRange", "SpikesRUs", "SubConstructionYard", "SuperMonkeyLair", "TackResearchCenter"];
 		var NumBuildBlocks = 0;
 		var BuildNums = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
 		//Towers is going to be a click to deactivate kind of deal
+
 		//Maps will be a switch case specifying which
+
 		//Checkboxes for specailities
 		//UI
 var modal = document.getElementById('modal');
@@ -329,16 +344,19 @@ span.onclick = function() {
 span2.onclick = function() {
 	modal2.style.display = "none";
 }
+
 function changegamemode(value){
 	console.log(value);
 	nk_mode = value;
 }
+
 function changemap(newmap){
 map = newmap;
 document.getElementById("changemapbtn").src = "\.\/Images\/Tracks\/" + mapnames[map] + "_thumb.jpg";
 nk_track = mapnames[map];
 console.log("New Map = " + mapnames[map]);
 }
+
 function locktower(towerid){
 	if(LockedTowerNums[towerid] == 0){
 	document.getElementById(towernames[towerid]).style.filter = "grayscale(100%)";
@@ -349,12 +367,14 @@ function locktower(towerid){
 	}
 	makearray();
 }
+
 function changebloon(newvalue, type){
 	var test = bloonsname[type] + "2";
 	var min = document.getElementById(bloonsname[type] + "Slider").min;
 	document.getElementById(test).src = "./Images/Bloon/" + bloonsname[newvalue - min] + ".png";
 	BloonLevelOffsets[type] = newvalue; 
 }
+
 function makearray(){
 	LockedTowers = [];
 	NumLockedTowers = 0;
@@ -456,6 +476,7 @@ function makearray(){
 	}
 }
 }
+
 function lablock(labid){
 	if(LabNums[labid] == 0){
 		LabNums[labid] = 1;
@@ -476,6 +497,7 @@ function buildingblock(labid){
 	}
 	makebuildingarray();
 }
+
 function makebuildingarray(){
 	NumBuildBlocks = 0;
 	BlockedSpecialties = [];
@@ -487,6 +509,7 @@ function makebuildingarray(){
 	}
 	console.log(BlockedSpecialties);
 }
+
 function makelabarray(){
 	NumLabBlocks = 0;
 	BlockedLabUpgrades = [];
@@ -498,6 +521,7 @@ function makelabarray(){
 	}
 	console.log(BlockedLabUpgrades);
 }
+
 function upgradelock(towerid){
 	var left = prompt("Please enter the amount of upgrades you can buy on the left side", "4");
 	var right = prompt("Please enter the amount of upgrades you can buy on the right side", "4");
@@ -509,7 +533,9 @@ function upgradelock(towerid){
 	}
 	document.getElementById(towernames[towerid] + "2text").innerHTML = left + "/" + right;
 	LockedUpgradeIds[towerid] = left + "/" + right;
+
 }
+
 function makearray2() {
 	var numoflocks = 0;
 	for(var i = 0; i<20; i++){
@@ -522,6 +548,7 @@ function makearray2() {
 	}
 }
 }
+
 function updatedata(){
 	nk_title = document.getElementById('name').value;
 	nk_rank_required = document.getElementById('rank').value;
@@ -591,12 +618,17 @@ function updatedata(){
 	} else {
 		TargetRound = document.getElementById("endround").value;
 	}
+
+
 	console.log(BloonLevelOffsets);
+
 	MaxNumberOfTotalTowers = document.getElementById("maxmonkeys").value;
 	MaxNumberOfEachTower = document.getElementById("maxeachmonkeys").value;
+
 	//console.log(LockedUpgrades);
 	
 }
+
 function finished(){
 	document.getElementById('output').style.display = "block";
 	updatedata();
@@ -639,7 +671,10 @@ function finished(){
 	document.getElementById('output').innerHTML += ", \n    \"nk_mode\": ";
 	document.getElementById('output').innerHTML += nk_mode;
 	document.getElementById('output').innerHTML += "\n}";
+
+
 }
+
 for(var i=0; i<towernames.length;i++){
 	console.log("\<img id \=\"" + towernames[i] + "\" src=\"\.\/Images\/Towers\/" + towernames[i] + ".png\" style\=\"width\:62px\;height\:71px;\" onclick\=\"locktower\(" + i + "\)\"\>\<\/img\>");
 }
@@ -651,6 +686,7 @@ for(var i=0; i<towernames.length;i++){
     z-index: 1;
     padding-top: 100px;
     padding: 0;
+
 	position: absolute;
     top: 50%;
     left:50%;
@@ -669,6 +705,7 @@ for(var i=0; i<towernames.length;i++){
     border: 1px solid #888;
     width: 800px;
     height: 450px;
+
 }
 .close {
 	position:absolute;
@@ -691,6 +728,7 @@ for(var i=0; i<towernames.length;i++){
     z-index: 1;
     padding-top: 100px;
     padding: 0;
+
 	position: absolute;
     top: 50%;
     left:50%;
@@ -709,6 +747,7 @@ for(var i=0; i<towernames.length;i++){
     border: 1px solid #888;
     width: 500px;
     height: 450px;
+
 }
 .close2 {
 	position:absolute;
@@ -793,6 +832,7 @@ select {
 		1px 1px 0 #000;
 }
 option {
+
 }
 button {
 	text-align-last:center;
