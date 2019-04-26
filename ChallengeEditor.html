@@ -78,10 +78,7 @@
 <img id ="map" src="./Images/Tracks/forestpath_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(69)"></img>
 <img id ="map" src="./Images/Tracks/tar_pit_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(70)"></img>
 <img id ="map" src="./Images/Tracks/main_street_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(71)"></img>
-<img id ="map" src="./Images/Tracks/radioactive_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(72)"></img>
-    	</div>
-</div></div></div>
-</div></div>
+<img id ="map" src="./Images/Tracks/radioactive_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(72)"></img></div></div></div></div></div></div>
 <div id="modal2" class="modal2">	<div style="max-width: 500px;top: -1000px;display: block;margin-left: auto;margin-right: auto;" id="class">	<div style="max-width: 500px; overflow:scroll;background-color: #436FA8;" id="bg" class="modal-content2">  
 	<span class="close2" style="width: 25px; height: 25px;"><img src="./Images/UI/exitbtn.png" style="width: 25px; height: 25px;"></img></span>
 <div><img id ="red" src="./Images/Bloon/Red.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="0" class="slider" id="RedSlider" oninput="changebloon(this.value,0)"><img id ="Red2" src="./Images/Bloon/Red.png" style="width: 47px; height: 63px;"></div>
@@ -98,8 +95,7 @@
 <div><img id ="moab" src="./Images/Bloon/MOAB.png" style="width: 47px; height: 63px;"></img><input type="range" min="-12" max="2" value="0" class="slider" id="MOABSlider" oninput="changebloon(this.value,12)"><img id ="MOAB2" src="./Images/Bloon/MOAB.png" style="width: 47px; height: 63px;"></div>
 <div><img id ="bfb" src="./Images/Bloon/BFB.png" style="width: 47px; height: 63px;"></img><input type="range" min="-13" max="1" value="0" class="slider" id="BFBSlider" oninput="changebloon(this.value,13)"><img id ="BFB2" src="./Images/Bloon/BFB.png" style="width: 47px; height: 63px;"></div>
 <div><img id ="zomg" src="./Images/Bloon/ZOMG.png" style="width: 47px; height: 63px;"></img><input type="range" min="-14" max="0" value="0" class="slider" id="ZOMGSlider" oninput="changebloon(this.value,14)"><img id ="ZOMG2" src="./Images/Bloon/ZOMG.png" style="width: 47px; height: 63px;"></div>
-
- </div> </div> </div>
+</div> </div> </div>
 <div>
 <p>&nbsp;Challenge Name:
     <input type="text" id="name" style="background-color: #436FA8;width: 300px;" value="Name">
@@ -245,7 +241,6 @@
 		var nk_description = "";
 		var LockedTowers = [];
 		var LockedUpgrades = [];
-
 	//Game Properties
 		var TargetRound = 0;
 		var CanSave = false;
@@ -257,7 +252,6 @@
 		var BlockedLabUpgrades = [];
 		var BlockedSpecialties = [];
 		var BloonLevelOffsets = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-
 		//Setup
 		var Setup = [];
 		var Towers = [];
@@ -265,14 +259,12 @@
 		var StartingLives = 100;
 		var StartRound = 1;
 		var Inventory = [];
-		
 		//Reward
 		var Tokens = 0;
 		var XPMultiplier = 1.0;
 		var MonkeyMoney = 500;
 		var XP = 0;
 		var MonkeyMoneyMultiplier = 1;
-
 	//Special Coniditions
 		//Unknown
 		var RoundStep = 1.0;
@@ -280,31 +272,22 @@
 		var SpeedModifier = 1.0;
 		var PriceModifier = 1.0;
 		var SellPriceModifier = 0.8;
-
 		//The Crucible
 		var WaterToCrucible = false;
-
 		//Mix N Match
 		var FreeTowersSecondRound = false;
-
 		//No Escape
 		var LoseLivesTimer = 1;
 		var LoseLivesAmount = 1;
 		var LoseLivesGracePeriod = 30; //in seconds
-
 		//Wizard Lord
 		var ConsumeMostExpensiveTowerRounds = 2;
-
 		//FastUpgrades
 		var TowersAutoUpgrade = false;
-
 		//Short Lived
 		var TowerLifespan = -1;
-
 		//Covert Pops
 		var BloonsForcedCamo = [];
-
-
 		//EXTRA FOR CODE
 		var map = "monkey_lane";
 		var mapnames = ["monkey_lane", "bloom", "present_delivery", "rabbit_holes", "snowy_backyard", "sprint_track", "express_shipping", "checkers", "skull_peak", "lobby", "3_times_around", "grotto", "patch", "hedge_maze", "fireworks", "brick_wall", "z_factor", "maze", "frozen_lake", "roswell", "space_truckin", "walk_in_the_park", "ancient_tomb", "hearthside", "six_feet", "river_rapids", "wattle_trees", "pyramids", "dune_sea", "lava_fields", "ice_flow", "country_road", "jungle", "workshop", "bloon_of_clubs", "archipelago", "crop_circles", "slalom", "stream", "dock_side", "villageshore", "trick_or_treat", "battle_knot","candyland","crypt_keeper", "long_range", "water_hazard", "rink_revenge", "challenger_deep", "scorched_earth", "u_turn","the_great_divide","the_eye","one_direction", "lightning_scar","go_with_the_flow","mount_magma","siege","double_double_crossover","tunnels","castle","against_the_clock","drag_strip","canyon","treetops","runway","down_the_drain","benguela","web","forestpath","tar_pit","main_street","radioactive"];
@@ -320,13 +303,6 @@
 		var buildingnames = ["AcePrivateHangar", "AlsCustomChippers", "BombingRange", "BoomerangDojo", "DartlingAmmoDump", "DartTrainingFacility", "EngineersWorkshop", "GlueSupplyDepot", "HeloHangar", "IceFortress", "MageSpire", "MortarEmplacement", "NinjaAcademy", "PirateCove", "RifleRange", "SpikesRUs", "SubConstructionYard", "SuperMonkeyLair", "TackResearchCenter"];
 		var NumBuildBlocks = 0;
 		var BuildNums = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-
-		//Towers is going to be a click to deactivate kind of deal
-
-		//Maps will be a switch case specifying which
-
-		//Checkboxes for specailities
-		//UI
 var modal = document.getElementById('modal');
 var modal2 = document.getElementById('modal2');
 var span = document.getElementsByClassName("close")[0];
@@ -680,7 +656,7 @@ for(var i=0; i<towernames.length;i++){
 }
 	</script>
 	<style>
-	@font-face { font-family: btd5; src: url('./Font/oetztype.ttf'); } 
+	@font-face { font-family: btd5; src: url('./Font/Oetztype.ttf'); } 
 	.modal {
     display: none;
     z-index: 1;
@@ -790,14 +766,24 @@ for(var i=0; i<towernames.length;i++){
   border-radius: 5px;
   background: #38200F;
   outline: none;
+  margin-top: -1px;
   -webkit-transition: .2s;
   transition: opacity .2s;
+}
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  width: 23px;
+  height: 24px;
+  border: 0;
+  margin-top: -1px;
+  background: url('../HalfHydra.github.io/Images/UI/sliderbtn.png');
+  cursor: pointer;
 }
 .slider::-moz-range-thumb {
   width: 23px;
   height: 24px;
   border: 0;
-  background: url('./Images/UI/sliderbtn.png');
+  background: url('../HalfHydra.github.io/Images/UI/sliderbtn.png');
   cursor: pointer;
 }
 p {
