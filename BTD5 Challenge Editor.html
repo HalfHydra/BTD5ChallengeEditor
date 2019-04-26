@@ -78,7 +78,10 @@
 <img id ="map" src="./Images/Tracks/forestpath_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(69)"></img>
 <img id ="map" src="./Images/Tracks/tar_pit_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(70)"></img>
 <img id ="map" src="./Images/Tracks/main_street_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(71)"></img>
-<img id ="map" src="./Images/Tracks/radioactive_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(72)"></img></div></div></div></div></div></div>
+<img id ="map" src="./Images/Tracks/radioactive_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(72)"></img>
+    	</div>
+</div></div></div>
+</div></div>
 <div id="modal2" class="modal2">	<div style="max-width: 500px;top: -1000px;display: block;margin-left: auto;margin-right: auto;" id="class">	<div style="max-width: 500px; overflow:scroll;background-color: #436FA8;" id="bg" class="modal-content2">  
 	<span class="close2" style="width: 25px; height: 25px;"><img src="./Images/UI/exitbtn.png" style="width: 25px; height: 25px;"></img></span>
 <div><img id ="red" src="./Images/Bloon/Red.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="0" class="slider" id="RedSlider" oninput="changebloon(this.value,0)"><img id ="Red2" src="./Images/Bloon/Red.png" style="width: 47px; height: 63px;"></div>
@@ -95,7 +98,8 @@
 <div><img id ="moab" src="./Images/Bloon/MOAB.png" style="width: 47px; height: 63px;"></img><input type="range" min="-12" max="2" value="0" class="slider" id="MOABSlider" oninput="changebloon(this.value,12)"><img id ="MOAB2" src="./Images/Bloon/MOAB.png" style="width: 47px; height: 63px;"></div>
 <div><img id ="bfb" src="./Images/Bloon/BFB.png" style="width: 47px; height: 63px;"></img><input type="range" min="-13" max="1" value="0" class="slider" id="BFBSlider" oninput="changebloon(this.value,13)"><img id ="BFB2" src="./Images/Bloon/BFB.png" style="width: 47px; height: 63px;"></div>
 <div><img id ="zomg" src="./Images/Bloon/ZOMG.png" style="width: 47px; height: 63px;"></img><input type="range" min="-14" max="0" value="0" class="slider" id="ZOMGSlider" oninput="changebloon(this.value,14)"><img id ="ZOMG2" src="./Images/Bloon/ZOMG.png" style="width: 47px; height: 63px;"></div>
-</div> </div> </div>
+
+ </div> </div> </div>
 <div>
 <p>&nbsp;Challenge Name:
     <input type="text" id="name" style="background-color: #436FA8;width: 300px;" value="Name">
@@ -259,6 +263,7 @@
 		var StartingLives = 100;
 		var StartRound = 1;
 		var Inventory = [];
+		
 		//Reward
 		var Tokens = 0;
 		var XPMultiplier = 1.0;
@@ -303,6 +308,10 @@
 		var buildingnames = ["AcePrivateHangar", "AlsCustomChippers", "BombingRange", "BoomerangDojo", "DartlingAmmoDump", "DartTrainingFacility", "EngineersWorkshop", "GlueSupplyDepot", "HeloHangar", "IceFortress", "MageSpire", "MortarEmplacement", "NinjaAcademy", "PirateCove", "RifleRange", "SpikesRUs", "SubConstructionYard", "SuperMonkeyLair", "TackResearchCenter"];
 		var NumBuildBlocks = 0;
 		var BuildNums = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+		//Towers is going to be a click to deactivate kind of deal
+		//Maps will be a switch case specifying which
+		//Checkboxes for specailities
+		//UI
 var modal = document.getElementById('modal');
 var modal2 = document.getElementById('modal2');
 var span = document.getElementsByClassName("close")[0];
@@ -320,19 +329,16 @@ span.onclick = function() {
 span2.onclick = function() {
 	modal2.style.display = "none";
 }
-
 function changegamemode(value){
 	console.log(value);
 	nk_mode = value;
 }
-
 function changemap(newmap){
 map = newmap;
 document.getElementById("changemapbtn").src = "\.\/Images\/Tracks\/" + mapnames[map] + "_thumb.jpg";
 nk_track = mapnames[map];
 console.log("New Map = " + mapnames[map]);
 }
-
 function locktower(towerid){
 	if(LockedTowerNums[towerid] == 0){
 	document.getElementById(towernames[towerid]).style.filter = "grayscale(100%)";
@@ -343,14 +349,12 @@ function locktower(towerid){
 	}
 	makearray();
 }
-
 function changebloon(newvalue, type){
 	var test = bloonsname[type] + "2";
 	var min = document.getElementById(bloonsname[type] + "Slider").min;
 	document.getElementById(test).src = "./Images/Bloon/" + bloonsname[newvalue - min] + ".png";
 	BloonLevelOffsets[type] = newvalue; 
 }
-
 function makearray(){
 	LockedTowers = [];
 	NumLockedTowers = 0;
@@ -452,7 +456,6 @@ function makearray(){
 	}
 }
 }
-
 function lablock(labid){
 	if(LabNums[labid] == 0){
 		LabNums[labid] = 1;
@@ -473,7 +476,6 @@ function buildingblock(labid){
 	}
 	makebuildingarray();
 }
-
 function makebuildingarray(){
 	NumBuildBlocks = 0;
 	BlockedSpecialties = [];
@@ -485,7 +487,6 @@ function makebuildingarray(){
 	}
 	console.log(BlockedSpecialties);
 }
-
 function makelabarray(){
 	NumLabBlocks = 0;
 	BlockedLabUpgrades = [];
@@ -497,7 +498,6 @@ function makelabarray(){
 	}
 	console.log(BlockedLabUpgrades);
 }
-
 function upgradelock(towerid){
 	var left = prompt("Please enter the amount of upgrades you can buy on the left side", "4");
 	var right = prompt("Please enter the amount of upgrades you can buy on the right side", "4");
@@ -509,9 +509,7 @@ function upgradelock(towerid){
 	}
 	document.getElementById(towernames[towerid] + "2text").innerHTML = left + "/" + right;
 	LockedUpgradeIds[towerid] = left + "/" + right;
-
 }
-
 function makearray2() {
 	var numoflocks = 0;
 	for(var i = 0; i<20; i++){
@@ -524,7 +522,6 @@ function makearray2() {
 	}
 }
 }
-
 function updatedata(){
 	nk_title = document.getElementById('name').value;
 	nk_rank_required = document.getElementById('rank').value;
@@ -594,17 +591,12 @@ function updatedata(){
 	} else {
 		TargetRound = document.getElementById("endround").value;
 	}
-
-
 	console.log(BloonLevelOffsets);
-
 	MaxNumberOfTotalTowers = document.getElementById("maxmonkeys").value;
 	MaxNumberOfEachTower = document.getElementById("maxeachmonkeys").value;
-
 	//console.log(LockedUpgrades);
 	
 }
-
 function finished(){
 	document.getElementById('output').style.display = "block";
 	updatedata();
@@ -647,22 +639,18 @@ function finished(){
 	document.getElementById('output').innerHTML += ", \n    \"nk_mode\": ";
 	document.getElementById('output').innerHTML += nk_mode;
 	document.getElementById('output').innerHTML += "\n}";
-
-
 }
-
 for(var i=0; i<towernames.length;i++){
 	console.log("\<img id \=\"" + towernames[i] + "\" src=\"\.\/Images\/Towers\/" + towernames[i] + ".png\" style\=\"width\:62px\;height\:71px;\" onclick\=\"locktower\(" + i + "\)\"\>\<\/img\>");
 }
 	</script>
 	<style>
-	@font-face { font-family: btd5; src: url('./Font/Oetztype.ttf'); } 
+	@font-face { font-family: btd5; src: url('./Font/oetztype.ttf'); } 
 	.modal {
     display: none;
     z-index: 1;
     padding-top: 100px;
     padding: 0;
-
 	position: absolute;
     top: 50%;
     left:50%;
@@ -681,7 +669,6 @@ for(var i=0; i<towernames.length;i++){
     border: 1px solid #888;
     width: 800px;
     height: 450px;
-
 }
 .close {
 	position:absolute;
@@ -704,7 +691,6 @@ for(var i=0; i<towernames.length;i++){
     z-index: 1;
     padding-top: 100px;
     padding: 0;
-
 	position: absolute;
     top: 50%;
     left:50%;
@@ -723,7 +709,6 @@ for(var i=0; i<towernames.length;i++){
     border: 1px solid #888;
     width: 500px;
     height: 450px;
-
 }
 .close2 {
 	position:absolute;
@@ -766,24 +751,14 @@ for(var i=0; i<towernames.length;i++){
   border-radius: 5px;
   background: #38200F;
   outline: none;
-  margin-top: -1px;
   -webkit-transition: .2s;
   transition: opacity .2s;
-}
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-  width: 23px;
-  height: 24px;
-  border: 0;
-  margin-top: -1px;
-  background: url('../HalfHydra.github.io/Images/UI/sliderbtn.png');
-  cursor: pointer;
 }
 .slider::-moz-range-thumb {
   width: 23px;
   height: 24px;
   border: 0;
-  background: url('../HalfHydra.github.io/Images/UI/sliderbtn.png');
+  background: url('./Images/UI/sliderbtn.png');
   cursor: pointer;
 }
 p {
@@ -818,7 +793,6 @@ select {
 		1px 1px 0 #000;
 }
 option {
-
 }
 button {
 	text-align-last:center;
