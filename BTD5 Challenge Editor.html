@@ -13,8 +13,8 @@
 	position: absolute;
 	top: 50%;
 	left:50%;
-	margin-left: -180px;
-	margin-top: -450px;
+	margin-left: -400px;
+	margin-top: -200px;
 	background-color: rgb(0,0,0);
 	background-color: rgba(0,0,0,0);
 }
@@ -107,22 +107,32 @@
 		font-size: 24px;
 	}
 	.slider {
-		-webkit-appearance: none;
-		width: 350px;
-		height: 15px;
-		border-radius: 5px;
-		background: #38200F;
-		outline: none;
-		-webkit-transition: .2s;
-		transition: opacity .2s;
-	}
-	.slider::-moz-range-thumb {
-		width: 23px;
-		height: 24px;
-		border: 0;
-		background: url('./Images/UI/sliderbtn.png');
-		cursor: pointer;
-	}
+      -webkit-appearance: none;
+      width: 350px;
+      height: 15px;
+      border-radius: 5px;
+      background: #38200F;
+      outline: none;
+      margin-top: -1px;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+    .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+      width: 23px;
+      height: 24px;
+      border: 0;
+      margin-top: -1px;
+      background: url('./Images/UI/sliderbtn.png');
+      cursor: pointer;
+    }
+    .slider::-moz-range-thumb {
+      width: 23px;
+      height: 24px;
+      border: 0;
+      background: url('./Images/UI/sliderbtn.png');
+      cursor: pointer;
+    }
 	p {
 		font-family: btd5;
 		color: white;
@@ -279,7 +289,6 @@ var Setup = [];
 var Towers = [];
 var Inventory = [];
 
-
 //Special Coniditions
 //Unknown
 var RoundStep = 1.0;
@@ -311,7 +320,6 @@ var TowerLifespan = -1;
 //Covert Pops
 var BloonsForcedCamo = [];
 
-
 //EXTRA FOR CODE
 var map = "monkey_lane";
 var mapnames = ["monkey_lane", "bloom", "present_delivery", "rabbit_holes", "snowy_backyard", "sprint_track", "express_shipping", "checkers", "skull_peak", "lobby", "3_times_around", "grotto", "patch", "hedge_maze", "fireworks", "brick_wall", "z_factor", "maze", "frozen_lake", "roswell", "space_truckin", "walk_in_the_park", "ancient_tomb", "hearthside", "six_feet", "river_rapids", "wattle_trees", "pyramids", "dune_sea", "lava_fields", "ice_flow", "country_road", "jungle", "workshop", "bloon_of_clubs", "archipelago", "crop_circles", "slalom", "stream", "dock_side", "villageshore", "trick_or_treat", "battle_knot","candyland","crypt_keeper", "long_range", "water_hazard", "rink_revenge", "challenger_deep", "scorched_earth", "u_turn","the_great_divide","the_eye","one_direction", "lightning_scar","go_with_the_flow","mount_magma","siege","double_double_crossover","tunnels","castle","against_the_clock","drag_strip","canyon","treetops","runway","down_the_drain","benguela","web","forestpath","tar_pit","main_street","radioactive"];
@@ -327,13 +335,7 @@ var bloonsname = ["Red","Blue","Green","Yellow","Pink","Black", "White","Lead","
 var buildingnames = ["AcePrivateHangar", "AlsCustomChippers", "BombingRange", "BoomerangDojo", "DartlingAmmoDump", "DartTrainingFacility", "EngineersWorkshop", "GlueSupplyDepot", "HeloHangar", "IceFortress", "MageSpire", "MortarEmplacement", "NinjaAcademy", "PirateCove", "RifleRange", "SpikesRUs", "SubConstructionYard", "SuperMonkeyLair", "TackResearchCenter"];
 var NumBuildBlocks = 0;
 var BuildNums = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-
-//Towers is going to be a click to deactivate kind of deal
-
-//Maps will be a switch case specifying which // no dont do that wtf go away
-
-//Checkboxes for specailities
-//UI
+//End Values
 var modal = document.getElementById('modal');
 var modal2 = document.getElementById('modal2');
 var span = document.getElementsByClassName("close")[0];
@@ -583,8 +585,9 @@ function makelabarray(){
 
 function upgradelock(selected){
 	let towerid = [...selected.parentNode.children].indexOf(selected);
-	var left = prompt("Please enter the amount of upgrades you can buy on the left side", "4");
-	var right = prompt("Please enter the amount of upgrades you can buy on the right side", "4");
+	var limit = prompt("Please enter the amount of upgrades you can buy on both sides seperated by a slash", "X/X");
+    var left = limit.substring(0,1);
+    var right = limit.substring(2);
 	if(!left){
 		left = "4";
 	}
