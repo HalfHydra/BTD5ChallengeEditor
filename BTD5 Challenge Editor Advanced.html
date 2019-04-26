@@ -189,6 +189,11 @@
 		width: 47px;
 		height: 63px;
 	}
+	.camoBloonIcon {
+		width: 47px;
+		height: 63px;
+		filter: grayscale(100%);
+	}
 	.specialtyIcon {
 		width:135px;
 		height:93px;
@@ -268,6 +273,10 @@
 						<p> </p>
 						<button onclick="bloonranks()">Change Bloon Ranks</button>
 						<p> </p>
+						<p>&nbsp;Bloons Forced Camo: </p>
+						<div id = "bloons">
+						</div>
+						<p> </p>
 						<button onclick="finished()">Finished</button>
 						<textarea id="output" rows="25" cols="75"></textarea> 
 						<script>
@@ -310,9 +319,6 @@ var TowersAutoUpgrade = false;
 //Short Lived
 var TowerLifespan = -1;
 
-//Covert Pops
-var BloonsForcedCamo = [];
-
 //EXTRA FOR CODE
 var map = "monkey_lane";
 var mapnames = ["monkey_lane", "bloom", "present_delivery", "rabbit_holes", "snowy_backyard", "sprint_track", "express_shipping", "checkers", "skull_peak", "lobby", "3_times_around", "grotto", "patch", "hedge_maze", "fireworks", "brick_wall", "z_factor", "maze", "frozen_lake", "roswell", "space_truckin", "walk_in_the_park", "ancient_tomb", "hearthside", "six_feet", "river_rapids", "wattle_trees", "pyramids", "dune_sea", "lava_fields", "ice_flow", "country_road", "jungle", "workshop", "bloon_of_clubs", "archipelago", "crop_circles", "slalom", "stream", "dock_side", "villageshore", "trick_or_treat", "battle_knot","candyland","crypt_keeper", "long_range", "water_hazard", "rink_revenge", "challenger_deep", "scorched_earth", "u_turn","the_great_divide","the_eye","one_direction", "lightning_scar","go_with_the_flow","mount_magma","siege","double_double_crossover","tunnels","castle","against_the_clock","drag_strip","canyon","treetops","runway","down_the_drain","benguela","web","forestpath","tar_pit","main_street","radioactive"];
@@ -325,9 +331,12 @@ var labnames = ["AbilityCooldown","AttackSpeed","BigBloonSabotage","DoublePierce
 var LabNums = [0,0,0,0,0,0,0];
 var NumLabBlocks = 0;
 var bloonsname = ["Red","Blue","Green","Yellow","Pink","Black", "White","Lead","Zebra","Rainbow","Ceramic","Golden","MOAB","BFB","ZOMG"];
+var camobloonsname = ["Red","Blue","Green","Yellow","Pink","Black", "White","Lead","Zebra","Rainbow","Ceramic"];
 var buildingnames = ["AcePrivateHangar", "AlsCustomChippers", "BombingRange", "BoomerangDojo", "DartlingAmmoDump", "DartTrainingFacility", "EngineersWorkshop", "GlueSupplyDepot", "HeloHangar", "IceFortress", "MageSpire", "MortarEmplacement", "NinjaAcademy", "PirateCove", "RifleRange", "SpikesRUs", "SubConstructionYard", "SuperMonkeyLair", "TackResearchCenter"];
 var NumBuildBlocks = 0;
 var BuildNums = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var NumCamoBloons = 0;
+var CamoBloons = [0,0,0,0,0,0,0,0,0,0,0];
 //End Values
 var modal = document.getElementById('modal');
 var modal2 = document.getElementById('modal2');
@@ -343,6 +352,7 @@ let challenge = {
 		LockedUpgrades:[],
 		MaxNumberOfEachTower:-1,
 		MaxNumberOfTotalTowers:-1,
+		BloonsForcedCamo:[],
 		Reward:{
 			Tokens:0,
 			MonkeyMoney:50,
@@ -369,7 +379,7 @@ let challenge = {
 document.getElementById('output').style.display = "none";
 
 function advancedmode(){
-	window.location.replace('BTD5 Challenge Editor Advanced.html');
+	window.location.replace('BTD5 Challenge Editor.html');
 }
 
 window.addEventListener('load',()=>{
@@ -379,6 +389,7 @@ window.addEventListener('load',()=>{
 	makeLabUpgrades();
 	makeBuildings();
 	makeSliders();
+	makeBloons();
 });
 
 let makeSliders = ()=>{
@@ -417,6 +428,18 @@ let makeMaps = ()=>{
 				changemap(this);
 			});
 		output.appendChild(newMap);
+	});	
+}
+let makeBloons = ()=>{
+	let output = document.getElementById('bloons');
+	camobloonsname.forEach(t=>{
+		let newBloon = document.createElement('img');
+		newBloon.className = 'camoBloonIcon';
+		newBloon.src = `./Images/Bloon/${t}_Camo.png`
+			newBloon.addEventListener('click',function(){
+				forcecamobloon(this);
+			});
+		output.appendChild(newBloon);
 	});	
 }
 let makeTowers = ()=>{
@@ -493,7 +516,6 @@ span2.onclick = function() {
 }
 
 function changegamemode(value){
-	console.log(value);
 	challenge.nk_mode = value;
 }
 
@@ -531,6 +553,36 @@ function makearray(){
 		if(LockedTowerNums[i] == 1){
 			challenge.Rules.LockedTowers[NumLockedTowers] = towernames[i];
 			NumLockedTowers++;
+		}
+	}
+}
+
+function forcecamobloon(selected){
+	let labid = [...selected.parentNode.children].indexOf(selected);
+	if(CamoBloons[labid] == 0){
+		CamoBloons[labid] = 1;
+		selected.style.filter = "grayscale(0%)";
+		if(labid == 5 || labid == 7 || labid == 8){
+		selected.style.outline = "lightgray solid 2.5px";
+		}
+       // e.target.style.outline = "rgb(0, 255, 255) solid 2.5px";
+	} else if(CamoBloons[labid] == 1){
+		CamoBloons[labid] = 0;
+		selected.style.filter = "grayscale(100%)";
+		if(labid == 5 || labid == 7 || labid == 8){
+		selected.style.outline = "lightgray solid 0px";
+		}
+	}
+	camobloonarray();
+}
+
+function camobloonarray(){
+	NumCamoBloons = 0;
+	challenge.Rules.BloonsForcedCamo = [];
+	for(var i = 0; i<camobloonsname.length; i++){
+		if(CamoBloons[i] == 1){
+			challenge.Rules.BloonsForcedCamo[NumCamoBloons] = camobloonsname[i];
+			NumCamoBloons++;
 		}
 	}
 }
