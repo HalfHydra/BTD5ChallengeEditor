@@ -199,7 +199,11 @@
 		height:93px;
 
 	}
+	.inline {
+		display:inline-block;
+	}
 		</style>
+	
 	</head>
 	<body bgcolor="#5A8FD5"  style="width:750px; height:100px;">
 		<img src="./Images/UI/benbtn.png" style="position: absolute;top: 0;padding: 7px;right: 0%;border:0;margin-left: auto;margin-right: auto;" onclick="advancedmode()">
@@ -213,7 +217,7 @@
 							<span class="close2" style="width: 25px; height: 25px;"><img src="./Images/UI/exitbtn.png" style="width: 25px; height: 25px;"></img></span>
 							<div id ='sliders'></div>
 						</div> </div> </div>
-						<div>
+						<div style="width: 750px;height: 380px;">
 							<p>&nbsp;Challenge Name:
 							<input type="text" id="name" style="background-color: #436FA8;width: 300px;" value="Name">
 							</p>
@@ -228,8 +232,8 @@
 								<img id="changemapgear" src="./Images/Tracks/track_gear.png" style="position: absolute;width: 270px; height: 200px;" onclick="selectmap()"> <!-- onclick="selectmap() -->
 								<img id="changemapbtn" src="./Images/Tracks/monkey_lane_thumb.jpg" style="width: 250px; height: 180px;" onclick="selectmap()">
 							</div>
-							<div style="display: inline-block">
-								<p>&nbsp;Game Mode:
+							<div style="display: inline-block;">
+								<p><img src="./Images/UI/Mode.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Game Mode:
 								<select id="gamemode" name="type" onchange="changegamemode(value)">
 									<option value="0">Easy</option>
 									<option value="1">Medium</option>
@@ -239,21 +243,21 @@
 									<option value="5">Apocalypse</option>
 								</select>
 								</p>
-								<p>&nbsp;Starting Cash:
+								<p><img src="./Images/UI/Cash.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Starting Cash:
 								<input type="text" id="startcash" style="width: 75px" value="DEFAULT">
 								</p>
-								<p>&nbsp;Starting Lives:
+								<p><img src="./Images/UI/Health.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Starting Lives:
 								<input type="text" id="startlives" style="width: 75px" value="DEFAULT">
 								</p>
-								<p>&nbsp;Start Round:
+								<p><img src="./Images/UI/StartRound.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Start Round:
 								<input type="text" id="startround" style="width: 75px" value="1">
 								</p>
-								<p>&nbsp;End Round:
+								<p><img src="./Images/UI/Timer.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;End Round:
 								<input type="text" id="endround" style="width: 75px" value="DEFAULT">
 								</p>
 							</div>
 						</div>
-						<p>&nbsp;Lock Towers: </p>
+						<p><img src="./Images/UI/Lock.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Lock Towers: </p>
 						<div id = "towers">
 						</div>
 						<p>&nbsp;Max Monkeys:
@@ -263,17 +267,17 @@
 						<input type="text" id="maxeachmonkeys" style="width: 30px" value="-1">
 						</p>
 						<div>
-							<p>&nbsp;Lock Upgrades: </p>
+							<p><img src="./Images/UI/Lock.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Lock Upgrades: </p>
 							<div id ="locks"></div>
 						</div>
-						<p>&nbsp;Disable Lab Upgrades: </p>
+						<p><img src="./Images/UI/Lock.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Disable Lab Upgrades: </p>
 						<div id = "labUpgrades"></div>
-						<p>&nbsp;Disable Speciality Buildings: </p>
+						<p><img src="./Images/UI/Lock.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Disable Speciality Buildings: </p>
 						<div id = "specialties"></div>
 						<p> </p>
 						<button onclick="bloonranks()">Change Bloon Ranks</button>
 						<p> </p>
-						<p>&nbsp;Bloons Forced Camo: </p>
+						<p><img src="./Images/Bloon/Red_Camo.png" style="width: 23px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Bloons Forced Camo: </p>
 						<div id = "bloons">
 						</div>
 						<p> </p>
