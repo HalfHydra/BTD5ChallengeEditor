@@ -289,15 +289,20 @@
 						<div id = "labUpgrades"></div>
 						<p style="width: 280px; height: 27px;"><img src="./Images/UI/Lock.png" style="width: 25px; height: 25px;vertical-align:middle" class="inline" align="top">&nbsp;Disable Speciality Buildings: </p>
 						<div id = "specialties"></div>
-						<p><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Max Monkeys:
+						<p style="width: 210px; height: 32px;"><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Max Monkeys:
 						<input type="text" id="maxmonkeys" style="width: 30px" value="-1">
 						</p>
-						<p><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Max of Each Monkey:
+						<p style="width: 270px; height: 32px;"><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Max of Each Monkey:
 						<input type="text" id="maxeachmonkeys" style="width: 30px" value="-1">
 						</p>
-						<p style="display:none;"><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Inventory:
+						<!--<p style="display:none;"><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Inventory:
 						<div id ="inventory" style="display:none;"></div>
-						</p>
+						</p>-->
+						<p style="background:#4A75B2;width: 260px; height: 37px;"><img src="./Images/UI/Cash.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Can Earn Money: <input type="checkbox" checked id="CanEarnMoney" style="vertical-align:middle" onclick=""><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in Deflation mode. This disables all possible ways to earn money that aren\'t related to towers.')"></p>
+						<p style="background:#4A75B2;width: 320px; height: 37px;"><img src="./Images/UI/StartRound.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Pause Between Rounds: <input type="checkbox" checked id="PauseBetweenRounds" style="vertical-align:middle" onclick=""><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in Apocalypse mode. This forces the autoplay of rounds while still giving end of round cash.')"></p>
+						<p style="background:#4A75B2;width: 310px; height: 37px;"><img src="./Images/UI/Up.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Towers Auto Upgrade: <input type="checkbox" id="TowersAutoUpgrade" style="vertical-align:middle" onclick=""><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in the Fast Upgrades mission. This upgrades towers on the path with the most upgrades once per round.')"></p>
+						<p style="background:#4A75B2;width: 355px; height: 37px;"><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Free Towers Second Round: <input type="checkbox" id="FreeTowersSecondRound" style="vertical-align:middle" onclick=""><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in the MixNMatch event. This gives 1 of the next tower in the order every second round.')"></p>
+
 						<p style="width: 245px; height: 32px;"> 
 						<img src="./Images/Bloon/Red.png" style="width: 23px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;<button onclick="bloonranks()">Change Bloon Ranks</button>
 						</p>
@@ -412,6 +417,10 @@ function advancedmode(){
 	window.location.replace('BTD5 Challenge Editor.html');
 }
 
+function promptinfo(info){
+	alert(info);
+}
+
 window.addEventListener('load',()=>{
 	makeMaps();
 	makeTowers();
@@ -420,7 +429,7 @@ window.addEventListener('load',()=>{
 	makeBuildings();
 	makeSliders();
 	makeBloons();
-	makeInventory();
+	//makeInventory();
 });
 
 let makeSliders = ()=>{
@@ -509,7 +518,7 @@ let makeUpgrades = ()=>{
 		output.appendChild(newContainer);
 	});	
 }
-let makeInventory = ()=>{
+/*let makeInventory = ()=>{
 	let output = document.getElementById('inventory');
 	agentnames.forEach((u,i)=>{
 		let newContainer = document.createElement('div');
@@ -531,7 +540,7 @@ let makeInventory = ()=>{
 		});
 		output.appendChild(newContainer);
 	});	
-}
+}*/
 let makeLabUpgrades = ()=>{
 	let output = document.getElementById('labUpgrades');
 	labnames.forEach(l=>{
