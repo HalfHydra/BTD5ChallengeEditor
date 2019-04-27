@@ -739,6 +739,9 @@ function updatedata(){
 	challenge.nk_title = document.getElementById('name').value;
 	challenge.nk_rank_required = document.getElementById('rank').value;
 	challenge.nk_description =document.getElementById('description').value;
+	if(challenge.nk_track == ""){
+	challenge.nk_track = "monkey_lane";
+	}
 	var cash = document.getElementById('startcash').value;
 	if(cash == "DEFAULT"){
 		challenge.Setup.Money = 650;
