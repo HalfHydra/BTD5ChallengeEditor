@@ -138,6 +138,9 @@
 			1px -1px 0 #000,
 			-1px 1px 0 #000,
 			1px 1px 0 #000;
+			background: #4A75B2;
+			border-radius:7px;
+    		border:2px solid #5A8FD5;
 	}
 	input {
 		text-align-last:center;
@@ -149,6 +152,8 @@
 			1px -1px 0 #000,
 			-1px 1px 0 #000,
 			1px 1px 0 #000;
+			border-radius:5px;
+			border-color: #2B466A;
 	}
 	select {
 		text-align-last:center;
@@ -160,6 +165,8 @@
 			1px -1px 0 #000,
 			-1px 1px 0 #000,
 			1px 1px 0 #000;
+			border-radius:5px;
+			border-color: #2B466A;
 	}
 	option {
 
@@ -175,6 +182,7 @@
 			-1px 1px 0 #000,
 			1px 1px 0 #000;
 		font-size: 18px;
+		border-radius:8px;
 	}
 	input[type='checkbox'] {
     -webkit-appearance:none;
@@ -230,22 +238,22 @@
 							<span class="close2" style="width: 25px; height: 25px;"><img src="./Images/UI/exitbtn.png" style="width: 25px; height: 25px;"></img></span>
 							<div id ='sliders'></div>
 						</div> </div> </div>
-						<div style="width: 750px;height: 400px;">
-							<p><img src="./Images/UI/Text.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Challenge Name:
+						<div style="width: 750px;height: 450px;">
+							<p style="background:#4A75B2;width: 500px; height: 30px;"><img src="./Images/UI/Text.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Challenge Name:
 							<input type="text" id="name" style="background-color: #436FA8;width: 300px;" value="Name">
 							</p>
-							<p><img src="./Images/UI/Text.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Challenge Description:
+							<p style="background:#4A75B2;width: 545px; height: 30px;"><img src="./Images/UI/Text.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Challenge Description:
 							<input type="text" id="description" style="background-color: #436FA8;width: 300px;" value="Description">
 							</p>
-							<p><img src="./Images/UI/Rank.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Rank Required:
+							<p style="background:#4A75B2;width: 212px; height: 30px;"><img src="./Images/UI/Rank.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Rank Required:
 							<input type="text" id="rank" style="background-color: #436FA8;width: 30px;" value="20">
 							</p>
-							<p><img src="./Images/UI/Save.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Can Save: <input type="checkbox" id="CanSave" style="vertical-align:middle" onclick=""></p>
+							<p style="background:#4A75B2;width: 167px; height: 37px;"><img src="./Images/UI/Save.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Can Save: <input type="checkbox" id="CanSave" style="vertical-align:middle" onclick=""></p>
 							<div style="display: inline-block">
 								<img id="changemapgear" src="./Images/Tracks/track_gear.png" style="position: absolute;width: 270px; height: 200px;" onclick="selectmap()"> <!-- onclick="selectmap() -->
 								<img id="changemapbtn" src="./Images/Tracks/monkey_lane_thumb.jpg" style="width: 250px; height: 180px;" onclick="selectmap()">
 							</div>
-							<div style="display: inline-block;">
+							<div style="display: inline-block;width: 305px; height: 270px">
 								<p><img src="./Images/UI/Mode.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Game Mode:
 								<select id="gamemode" name="type" onchange="changegamemode(value)">
 									<option value="0">Easy</option>
@@ -256,21 +264,21 @@
 									<option value="5">Apocalypse</option>
 								</select>
 								</p>
-								<p><img src="./Images/UI/Cash.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Starting Cash:
+								<p style="width: 252px; height: 30px;"><img src="./Images/UI/Cash.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Starting Cash:
 								<input type="text" id="startcash" style="width: 75px" value="DEFAULT">
 								</p>
-								<p><img src="./Images/UI/Health.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Starting Lives:
+								<p style="width: 255px; height: 30px;"><img src="./Images/UI/Health.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Starting Lives:
 								<input type="text" id="startlives" style="width: 75px" value="DEFAULT">
 								</p>
-								<p><img src="./Images/UI/StartRound.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Start Round:
+								<p style="width: 238px; height: 30px;"><img src="./Images/UI/StartRound.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Start Round:
 								<input type="text" id="startround" style="width: 75px" value="1">
 								</p>
-								<p><img src="./Images/UI/Timer.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;End Round:
+								<p style="width: 228px; height: 30px;"><img src="./Images/UI/Timer.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;End Round:
 								<input type="text" id="endround" style="width: 75px" value="DEFAULT">
 								</p>
 							</div>
 						</div>
-						<p><img src="./Images/UI/Lock.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Lock Towers: </p>
+						<p style="width: 155px; height: 27px;"><img src="./Images/UI/Lock.png" style="width: 25px; height: 25px;vertical-align:middle" class="inline" align="top">&nbsp;Lock Towers: </p>
 						<div id = "towers">
 						</div>
 						<p><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Max Monkeys:
@@ -280,17 +288,17 @@
 						<input type="text" id="maxeachmonkeys" style="width: 30px" value="-1">
 						</p>
 						<div>
-							<p><img src="./Images/UI/Lock.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Lock Upgrades: </p>
+							<p style="width: 170px; height: 27px;"><img src="./Images/UI/Lock.png" style="width: 25px; height: 25px;vertical-align:middle" class="inline" align="top">&nbsp;Lock Upgrades: </p>
 							<div id ="locks"></div>
 						</div>
-						<p><img src="./Images/UI/Lock.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Disable Lab Upgrades: </p>
+						<p style="width: 227px; height: 27px;"><img src="./Images/UI/Lock.png" style="width: 25px; height: 25px;vertical-align:middle" class="inline" align="top">&nbsp;Disable Lab Upgrades: </p>
 						<div id = "labUpgrades"></div>
-						<p><img src="./Images/UI/Lock.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Disable Speciality Buildings: </p>
+						<p style="width: 280px; height: 27px;"><img src="./Images/UI/Lock.png" style="width: 25px; height: 25px;vertical-align:middle" class="inline" align="top">&nbsp;Disable Speciality Buildings: </p>
 						<div id = "specialties"></div>
-						<p> 
-						<img src="./Images/UI/Bloons.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;<button onclick="bloonranks()">Change Bloon Ranks</button>
+						<p style="width: 245px; height: 32px;"> 
+						<img src="./Images/Bloon/Red.png" style="width: 23px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;<button onclick="bloonranks()">Change Bloon Ranks</button>
 						</p>
-						<p><img src="./Images/Bloon/Red_Camo.png" style="width: 23px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Bloons Forced Camo: </p>
+						<p style="width: 220px; height: 30px;"><img src="./Images/Bloon/Red_Camo.png" style="width: 23px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Bloons Forced Camo: </p>
 						<div id = "bloons">
 						</div>
 						<p> </p>
