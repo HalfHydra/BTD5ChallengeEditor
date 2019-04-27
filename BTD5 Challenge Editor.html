@@ -528,7 +528,6 @@ function changemap(selected){
 	let map = [...selected.parentNode.children].indexOf(selected);
 	document.getElementById("changemapbtn").src = "\.\/Images\/Tracks\/" + mapnames[map] + "_thumb.jpg";
 	challenge.nk_track = mapnames[map];
-	console.log("New Map = " + mapnames[map]);
 }
 
 function locktower(selected){
@@ -540,7 +539,7 @@ function locktower(selected){
 		selected.style.filter = "grayscale(0%)";
 		LockedTowerNums[towerid] = 0;
 	}
-	makearray();
+	makelocktowerarray();
 }
 
 function changebloon(newvalue, selected){
@@ -551,7 +550,7 @@ function changebloon(newvalue, selected){
 	challenge.Rules.BloonLevelOffsets[type] = Number(newvalue); 
 }
 
-function makearray(){
+function makelocktowerarray(){
 	challenge.Rules.LockedTowers = [];
 	NumLockedTowers = 0;
 	for(var i=0; i<towernames.length;i++){
@@ -574,12 +573,12 @@ function lablock(selected){
 	makelabarray();
 }
 function buildingblock(selected){
-	let labid = [...selected.parentNode.children].indexOf(selected);
-	if(BuildNums[labid] == 0){
-		BuildNums[labid] = 1;
+	let buildid = [...selected.parentNode.children].indexOf(selected);
+	if(BuildNums[buildid] == 0){
+		BuildNums[buildid] = 1;
 		selected.style.filter = "grayscale(100%)";
-	} else if(BuildNums[labid] == 1){
-		BuildNums[labid] = 0;
+	} else if(BuildNums[buildid] == 1){
+		BuildNums[buildid] = 0;
 		selected.style.filter = "grayscale(0%)";
 	}
 	makebuildingarray();
@@ -670,7 +669,6 @@ function updatedata(){
 	challenge.Setup.StartRound = document.getElementById('startround').value;
 	var cb = document.getElementById('CanSave');
 	challenge.Rules.CanSave = cb.checked;
-	console.log(document.getElementById("endround").value);
 	if(document.getElementById("endround").value == "DEFAULT"){
 		challenge.nk_mode = Number(challenge.nk_mode);
 		let TargetRound;
@@ -682,7 +680,6 @@ function updatedata(){
 				TargetRound = 65;
 				break;
 			case 2:
-				console.log("hi");
 				TargetRound = 85;
 				break;
 			case 3: 
@@ -699,24 +696,16 @@ function updatedata(){
 	} else {
 		challenge.Rules.TargetRound = document.getElementById("endround").value;
 	}
-
-
-
 	challenge.Rules.MaxNumberOfTotalTowers = document.getElementById("maxmonkeys").value;
 	challenge.Rules.MaxNumberOfEachTower = document.getElementById("maxeachmonkeys").value;
-
-	//console.log(LockedUpgrades);
-
 }
-
 //what in the unholy fuck was this
 function finished(){
 	document.getElementById('output').style.display = "block";
 	updatedata();
 	document.getElementById('output').innerHTML = JSON.stringify(challenge,null,2);
 }
-
-						</script>
+</script>
 	</body>
 	</head>
 </html>

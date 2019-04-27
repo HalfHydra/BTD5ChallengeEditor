@@ -250,7 +250,7 @@
 							</p>
 							<p style="background:#4A75B2;width: 167px; height: 37px;"><img src="./Images/UI/Save.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Can Save: <input type="checkbox" id="CanSave" style="vertical-align:middle" onclick=""></p>
 							<div style="display: inline-block">
-								<img id="changemapgear" src="./Images/Tracks/track_gear.png" style="position: absolute;width: 270px; height: 200px;" onclick="selectmap()"> <!-- onclick="selectmap() -->
+								<img id="changemapgear" src="./Images/Tracks/track_gear.png" style="position: absolute;width: 270px; height: 200px;" onclick="selectmap()">
 								<img id="changemapbtn" src="./Images/Tracks/monkey_lane_thumb.jpg" style="width: 250px; height: 180px;" onclick="selectmap()">
 							</div>
 							<div style="display: inline-block;width: 305px; height: 270px">
@@ -281,12 +281,6 @@
 						<p style="width: 155px; height: 27px;"><img src="./Images/UI/Lock.png" style="width: 25px; height: 25px;vertical-align:middle" class="inline" align="top">&nbsp;Lock Towers: </p>
 						<div id = "towers">
 						</div>
-						<p><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Max Monkeys:
-						<input type="text" id="maxmonkeys" style="width: 30px" value="-1">
-						</p>
-						<p><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Max of Each Monkey:
-						<input type="text" id="maxeachmonkeys" style="width: 30px" value="-1">
-						</p>
 						<div>
 							<p style="width: 170px; height: 27px;"><img src="./Images/UI/Lock.png" style="width: 25px; height: 25px;vertical-align:middle" class="inline" align="top">&nbsp;Lock Upgrades: </p>
 							<div id ="locks"></div>
@@ -295,6 +289,15 @@
 						<div id = "labUpgrades"></div>
 						<p style="width: 280px; height: 27px;"><img src="./Images/UI/Lock.png" style="width: 25px; height: 25px;vertical-align:middle" class="inline" align="top">&nbsp;Disable Speciality Buildings: </p>
 						<div id = "specialties"></div>
+						<p><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Max Monkeys:
+						<input type="text" id="maxmonkeys" style="width: 30px" value="-1">
+						</p>
+						<p><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Max of Each Monkey:
+						<input type="text" id="maxeachmonkeys" style="width: 30px" value="-1">
+						</p>
+						<p style="display:none;"><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Inventory:
+						<div id ="inventory" style="display:none;"></div>
+						</p>
 						<p style="width: 245px; height: 32px;"> 
 						<img src="./Images/Bloon/Red.png" style="width: 23px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;<button onclick="bloonranks()">Change Bloon Ranks</button>
 						</p>
@@ -315,7 +318,7 @@ var CashPerPopModifier = 1.0;
 //Setup
 var Setup = [];
 var Towers = [];
-var Inventory = [];
+
 
 //Special Coniditions
 var RoundStep = 1.0;
@@ -348,6 +351,7 @@ var TowerLifespan = -1;
 var map = "monkey_lane";
 var mapnames = ["monkey_lane", "bloom", "present_delivery", "rabbit_holes", "snowy_backyard", "sprint_track", "express_shipping", "checkers", "skull_peak", "lobby", "3_times_around", "grotto", "patch", "hedge_maze", "fireworks", "brick_wall", "z_factor", "maze", "frozen_lake", "roswell", "space_truckin", "walk_in_the_park", "ancient_tomb", "hearthside", "six_feet", "river_rapids", "wattle_trees", "pyramids", "dune_sea", "lava_fields", "ice_flow", "country_road", "jungle", "workshop", "bloon_of_clubs", "archipelago", "crop_circles", "slalom", "stream", "dock_side", "villageshore", "trick_or_treat", "battle_knot","candyland","crypt_keeper", "long_range", "water_hazard", "rink_revenge", "challenger_deep", "scorched_earth", "u_turn","the_great_divide","the_eye","one_direction", "lightning_scar","go_with_the_flow","mount_magma","siege","double_double_crossover","tunnels","castle","against_the_clock","drag_strip","canyon","treetops","runway","down_the_drain","benguela","web","forestpath","tar_pit","main_street","radioactive"];
 var towernames = ["DartMonkey", "TackTower", "SniperMonkey", "BoomerangThrower", "NinjaMonkey", "BombTower", "IceTower", "GlueGunner", "MonkeyBuccaneer", "MonkeyAce", "SuperMonkey", "MonkeyApprentice", "MonkeyVillage", "BananaFarm", "MortarTower", "DartlingGun", "SpikeFactory", "HeliPilot", "MonkeyEngineer", "Bloonchipper", "MonkeySub","AngrySquirrel","BananaFarmer","BeeKeeper","BloonberryBush","BloonsdayDevice","MeerkatSpy","Radadactyl","SuperMonkeyStorm","TribalTurtle"];
+var agentnames = ["AngrySquirrel","BananaFarmer","BeeKeeper","BloonberryBush","BloonsdayDevice","MeerkatSpy","Radadactyl","SuperMonkeyStorm","TribalTurtle"];
 var LockedTowerNums = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var NumLockedTowers = 0;
 var LockedUpgradeIds = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -390,6 +394,7 @@ let challenge = {
 
 	},
 	Setup:{
+		Inventory:[],
 		Health:150,
 		Money:650,
 		StartRound:1
@@ -415,6 +420,7 @@ window.addEventListener('load',()=>{
 	makeBuildings();
 	makeSliders();
 	makeBloons();
+	makeInventory();
 });
 
 let makeSliders = ()=>{
@@ -489,7 +495,7 @@ let makeUpgrades = ()=>{
 		newTower.className = 'towerIcon';
 		newTower.src = `./Images/Towers/${u}.png`
 			newTower.addEventListener('click',function(){
-				locktower(this);
+				upgradelock(this);
 			});
 		output.appendChild(newTower);
 		let newText = document.createElement('div');
@@ -499,6 +505,29 @@ let makeUpgrades = ()=>{
 		newContainer.appendChild(newText);
 		newContainer.addEventListener('click',function(){
 			upgradelock(this);
+		});
+		output.appendChild(newContainer);
+	});	
+}
+let makeInventory = ()=>{
+	let output = document.getElementById('inventory');
+	agentnames.forEach((u,i)=>{
+		let newContainer = document.createElement('div');
+		newContainer.className = 'container';
+		let newTower = document.createElement('img');
+		newTower.className = 'towerIcon';
+		newTower.src = `./Images/Towers/${u}.png`
+			newTower.addEventListener('click',function(){
+				//changegiven(this);
+			});
+		output.appendChild(newTower);
+		let newText = document.createElement('div');
+		newText.className = 'centered';
+		newText.innerText = '0';
+		newContainer.appendChild(newTower);
+		newContainer.appendChild(newText);
+		newContainer.addEventListener('click',function(){
+			changegiven(this);
 		});
 		output.appendChild(newContainer);
 	});	
@@ -548,7 +577,6 @@ function changemap(selected){
 	let map = [...selected.parentNode.children].indexOf(selected);
 	document.getElementById("changemapbtn").src = "\.\/Images\/Tracks\/" + mapnames[map] + "_thumb.jpg";
 	challenge.nk_track = mapnames[map];
-	console.log("New Map = " + mapnames[map]);
 }
 
 function locktower(selected){
@@ -560,7 +588,7 @@ function locktower(selected){
 		selected.style.filter = "grayscale(0%)";
 		LockedTowerNums[towerid] = 0;
 	}
-	makearray();
+	makelocktowerarray();
 }
 
 function changebloon(newvalue, selected){
@@ -571,7 +599,7 @@ function changebloon(newvalue, selected){
 	challenge.Rules.BloonLevelOffsets[type] = Number(newvalue); 
 }
 
-function makearray(){
+function makelocktowerarray(){
 	challenge.Rules.LockedTowers = [];
 	NumLockedTowers = 0;
 	for(var i=0; i<towernames.length;i++){
@@ -624,12 +652,12 @@ function lablock(selected){
 	makelabarray();
 }
 function buildingblock(selected){
-	let labid = [...selected.parentNode.children].indexOf(selected);
-	if(BuildNums[labid] == 0){
-		BuildNums[labid] = 1;
+	let buildid = [...selected.parentNode.children].indexOf(selected);
+	if(BuildNums[buildid] == 0){
+		BuildNums[buildid] = 1;
 		selected.style.filter = "grayscale(100%)";
-	} else if(BuildNums[labid] == 1){
-		BuildNums[labid] = 0;
+	} else if(BuildNums[buildid] == 1){
+		BuildNums[buildid] = 0;
 		selected.style.filter = "grayscale(0%)";
 	}
 	makebuildingarray();
@@ -682,6 +710,30 @@ function upgradelock(selected){
 
 }
 
+function changegiven(selected){
+	let towerid = [...selected.parentNode.children].indexOf(selected);
+	var limit = prompt("Please enter the amount of this tower to be given", "1");
+	if(!limit){
+		limit = "0";
+	}
+
+	let type = agentnames[towerid];
+	let found = challenge.Setup.Inventory.find(u=>u.Type === type);
+       	if(found) found.Amount = limit;
+	else challenge.Setup.Inventory.push({
+		Amount:limit,
+		Type:type
+	})
+	type = agentnames[towerid] + "Pro";
+	found = challenge.Setup.Inventory.find(u=>u.Type === type);
+       	if(found) found.Amount = limit;
+	else challenge.Setup.Inventory.push({
+		Amount:limit,
+		Type:type
+	})
+	selected.children[1].innerText = limit;
+
+}
 
 function updatedata(){
 	challenge.nk_title = document.getElementById('name').value;
@@ -720,7 +772,6 @@ function updatedata(){
 	challenge.Setup.StartRound = document.getElementById('startround').value;
 	var cb = document.getElementById('CanSave');
 	challenge.Rules.CanSave = cb.checked;
-	console.log(document.getElementById("endround").value);
 	if(document.getElementById("endround").value == "DEFAULT"){
 		challenge.nk_mode = Number(challenge.nk_mode);
 		let TargetRound;
@@ -732,7 +783,6 @@ function updatedata(){
 				TargetRound = 65;
 				break;
 			case 2:
-				console.log("hi");
 				TargetRound = 85;
 				break;
 			case 3: 
@@ -749,24 +799,16 @@ function updatedata(){
 	} else {
 		challenge.Rules.TargetRound = document.getElementById("endround").value;
 	}
-
-
-
 	challenge.Rules.MaxNumberOfTotalTowers = document.getElementById("maxmonkeys").value;
 	challenge.Rules.MaxNumberOfEachTower = document.getElementById("maxeachmonkeys").value;
-
-	//console.log(LockedUpgrades);
-
 }
-
 //what in the unholy fuck was this
 function finished(){
 	document.getElementById('output').style.display = "block";
 	updatedata();
 	document.getElementById('output').innerHTML = JSON.stringify(challenge,null,2);
 }
-
-						</script>
+</script>
 	</body>
 	</head>
 </html>
