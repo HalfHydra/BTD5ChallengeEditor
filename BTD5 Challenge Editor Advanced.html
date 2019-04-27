@@ -190,7 +190,7 @@
     height:30px;
     background:#34547F;
     border-radius:5px;
-    border:2px solid #555;
+    border:2px solid #2B466A;
 	}
 	input[type='checkbox']:checked {
     	background: url('./Images/UI/Checked.png');
@@ -238,7 +238,7 @@
 							<span class="close2" style="width: 25px; height: 25px;"><img src="./Images/UI/exitbtn.png" style="width: 25px; height: 25px;"></img></span>
 							<div id ='sliders'></div>
 						</div> </div> </div>
-						<div style="width: 750px;height: 450px;">
+						<div style="width: 750px;height: 520px;">
 							<p style="background:#4A75B2;width: 500px; height: 30px;"><img src="./Images/UI/Text.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Challenge Name:
 							<input type="text" id="name" style="background-color: #436FA8;width: 300px;" value="Name">
 							</p>
@@ -249,12 +249,13 @@
 							<input type="text" id="rank" style="background-color: #436FA8;width: 30px;" value="20">
 							</p>
 							<p style="background:#4A75B2;width: 167px; height: 37px;"><img src="./Images/UI/Save.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Can Save: <input type="checkbox" id="CanSave" style="vertical-align:middle" onclick=""></p>
-							<div style="display: inline-block">
-								<img id="changemapgear" src="./Images/Tracks/track_gear.png" style="position: absolute;width: 270px; height: 200px;" onclick="selectmap()">
-								<img id="changemapbtn" src="./Images/Tracks/monkey_lane_thumb.jpg" style="width: 250px; height: 180px;" onclick="selectmap()">
+							<div style="background:#34547F;border-radius:5px;border:2px solid #2B466A; width: 590px; height: 300px">
+							<div style="display: inline-block; vertical-align: top; top: 10px;">
+								<img id="changemapgear" src="./Images/Tracks/track_gear.png" style="position: absolute;width: 270px; height: 200px;top: 270px; left: 30px;" onclick="selectmap()">
+								<img id="changemapbtn" src="./Images/Tracks/monkey_lane_thumb.jpg" style="width: 250px; height: 180px;margin-top: 40px;margin-left: 7px;border: 7px solid #4A75B2;border-radius:15px;" onclick="selectmap()">
 							</div>
 							<div style="display: inline-block;width: 305px; height: 270px">
-								<p><img src="./Images/UI/Mode.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Game Mode:
+								<p><img src="./Images/UI/Mode.png" style="width: 30px; height: 35px;line-height:35px;margin-top: 0px;vertical-align:middle" class="inline" align="top">&nbsp;Game Mode:
 								<select id="gamemode" name="type" onchange="changegamemode(value)">
 									<option value="0">Easy</option>
 									<option value="1">Medium</option>
@@ -264,20 +265,21 @@
 									<option value="5">Apocalypse</option>
 								</select>
 								</p>
-								<p style="width: 252px; height: 30px;"><img src="./Images/UI/Cash.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Starting Cash:
+								<p style="width: 252px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/Cash.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Starting Cash:
 								<input type="text" id="startcash" style="width: 75px" value="DEFAULT">
 								</p>
-								<p style="width: 255px; height: 30px;"><img src="./Images/UI/Health.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Starting Lives:
+								<p style="width: 255px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/Health.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Starting Lives:
 								<input type="text" id="startlives" style="width: 75px" value="DEFAULT">
 								</p>
-								<p style="width: 238px; height: 30px;"><img src="./Images/UI/StartRound.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Start Round:
+								<p style="width: 238px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/StartRound.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Start Round:
 								<input type="text" id="startround" style="width: 75px" value="1">
 								</p>
-								<p style="width: 228px; height: 30px;"><img src="./Images/UI/Timer.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;End Round:
+								<p style="width: 228px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/Timer.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;End Round:
 								<input type="text" id="endround" style="width: 75px" value="DEFAULT">
 								</p>
 							</div>
 						</div>
+					</div>
 						<p style="width: 155px; height: 27px;"><img src="./Images/UI/Lock.png" style="width: 25px; height: 25px;vertical-align:middle" class="inline" align="top">&nbsp;Lock Towers: </p>
 						<div id = "towers">
 						</div>
@@ -289,20 +291,27 @@
 						<div id = "labUpgrades"></div>
 						<p style="width: 280px; height: 27px;"><img src="./Images/UI/Lock.png" style="width: 25px; height: 25px;vertical-align:middle" class="inline" align="top">&nbsp;Disable Speciality Buildings: </p>
 						<div id = "specialties"></div>
-						<p style="width: 210px; height: 32px;"><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Max Monkeys:
-						<input type="text" id="maxmonkeys" style="width: 30px" value="-1">
+						<p style="width: 245px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Max Monkeys:
+						<input type="text" id="maxmonkeys" style="width: 30px " value="-1">
+						<img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used to limit the amount of towers you can have placed at once.')">
 						</p>
-						<p style="width: 270px; height: 32px;"><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Max of Each Monkey:
+						<p style="width: 305px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Max of Each Monkey:
 						<input type="text" id="maxeachmonkeys" style="width: 30px" value="-1">
-						</p>
+						<img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used to limit the amount of each tower you can place.')"></p>
 						<!--<p style="display:none;"><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Inventory:
 						<div id ="inventory" style="display:none;"></div>
 						</p>-->
-						<p style="background:#4A75B2;width: 260px; height: 37px;"><img src="./Images/UI/Cash.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Can Earn Money: <input type="checkbox" checked id="CanEarnMoney" style="vertical-align:middle" onclick=""><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in Deflation mode. This disables all possible ways to earn money that aren\'t related to towers.')"></p>
-						<p style="background:#4A75B2;width: 320px; height: 37px;"><img src="./Images/UI/StartRound.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Pause Between Rounds: <input type="checkbox" checked id="PauseBetweenRounds" style="vertical-align:middle" onclick=""><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in Apocalypse mode. This forces the autoplay of rounds while still giving end of round cash.')"></p>
+						<p style="background:#4A75B2;width: 260px; height: 37px;line-height:37px;margin: 0px;"><img src="./Images/UI/Cash.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Can Earn Money: <input type="checkbox" checked id="CanEarnMoney" style="vertical-align:middle" onclick=""><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in Deflation mode. This disables all possible ways to earn money that aren\'t related to towers.')"></p>
+						<p style="width: 320px; height: 37px;line-height:37px;height: 37px;line-height:37px;margin-top: 13px;" class="inline" ><img src="./Images/UI/Cash.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Money Per Round:
+								<input type="text" id="MoneyPerRound" style="width: 75px" value="DEFAULT"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in certain random missions and Deflation mode. This is used to change the amount of money you recieve at the end of round, you can also disable it with 0. It will not increase with the progressing rounds.')">
+						</p>
+						<p style="background:#4A75B2;width: 320px; height: 37px;line-height:37px;margin-top: 0px;"><img src="./Images/UI/StartRound.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Pause Between Rounds: <input type="checkbox" checked id="PauseBetweenRounds" style="vertical-align:middle" onclick=""><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in Apocalypse mode. This forces the autoplay of rounds while still giving end of round cash.')"></p>
 						<p style="background:#4A75B2;width: 310px; height: 37px;"><img src="./Images/UI/Up.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Towers Auto Upgrade: <input type="checkbox" id="TowersAutoUpgrade" style="vertical-align:middle" onclick=""><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in the Fast Upgrades mission. This upgrades towers on the path with the most upgrades once per round.')"></p>
-						<p style="background:#4A75B2;width: 355px; height: 37px;"><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Free Towers Second Round: <input type="checkbox" id="FreeTowersSecondRound" style="vertical-align:middle" onclick=""><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in the MixNMatch event. This gives 1 of the next tower in the order every second round.')"></p>
-
+						<p style="background:#4A75B2;width: 355px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Free Towers Second Round: <input type="checkbox" id="FreeTowersSecondRound" style="vertical-align:middle" onclick=""><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in the MixNMatch event. This gives 1 of the next tower in the order every second round.')"></p>
+						<p style="background:#4A75B2;width: 275px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/Crucible.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Water to Crucible: <input type="checkbox" id="WaterToCrucible" style="vertical-align:middle" onclick=""><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in the Crucible event. This changes anything on the map that is defined as water into a crucible spot. Unknown if crashes.')"></p>
+						<p style="width: 280px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/Stopwatch.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Lose Lives Timer:
+								<input type="text" id="LoseLivesTimer" style="width: 50px" value="NONE"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in the No Escape special mission. This enables the No Escape gimmick and is configured by the other \'Lose Lives\' options.')">
+								</p>
 						<p style="width: 245px; height: 32px;"> 
 						<img src="./Images/Bloon/Red.png" style="width: 23px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;<button onclick="bloonranks()">Change Bloon Ranks</button>
 						</p>
