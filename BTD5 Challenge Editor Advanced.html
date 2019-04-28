@@ -859,14 +859,12 @@ function preplacetower(selected){
             xbutton.addEventListener('click',function(){
 			removeentry(this);
 		});
-            rowcountpp++;
             var p1 = document.getElementById('towersection').style.height.indexOf('p');
             var p2 = document.getElementById('towersection').style.height.substring(0, p1);
             var p3 = parseInt(p2);
             var p4 = p3 + 98;
             document.getElementById('towersection').style.height = p4 + "px";
 	}
-	total++;
 	finished();
 }
 
@@ -890,11 +888,11 @@ function makethetowers(){
 }
 }
 
-function removeentry(element){
-	ppdata[element.id - 1] = null;
+function removeentry(t){
+	ppdata[t.id - 1] = null;
 	makethetowers();
 	NumPrePlacements--;
-	document.getElementById('Entries').deleteRow(parseInt(element.id));
+	document.getElementById('Entries').deleteRow(t.parentNode.rowIndex);
 	var p1 = document.getElementById('towersection').style.height.indexOf('p');
     var p2 = document.getElementById('towersection').style.height.substring(0, p1);
     var p3 = parseInt(p2);
