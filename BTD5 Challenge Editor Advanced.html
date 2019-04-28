@@ -54,7 +54,7 @@
 	top: 50%;
 	left:50%;
 	margin-left: -200px;
-	margin-top: 500px;
+	margin-top: 1500px;
 	background-color: rgb(0,0,0);
 	background-color: rgba(0,0,0,0);
 }
@@ -298,9 +298,9 @@
 						<p style="width: 305px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Max of Each Monkey:
 						<input type="text" id="maxeachmonkeys" style="width: 30px" value="-1">
 						<img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used to limit the amount of each tower you can place.')"></p>
-						<!--<p style="display:none;"><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Inventory:
-						<div id ="inventory" style="display:none;"></div>
-						</p>-->
+						<p style="width: 135px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Inventory:
+						<div id ="inventory"></div>
+						</p>
 						<p style="background:#4A75B2;width: 260px; height: 37px;line-height:37px;margin: 0px;"><img src="./Images/UI/Cash.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Can Earn Money: <input type="checkbox" checked id="CanEarnMoney" style="vertical-align:middle" onclick=""><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in Deflation mode. This disables all possible ways to earn money that aren\'t related to towers.')"></p>
 						<p style="width: 320px; height: 37px;line-height:37px;height: 37px;line-height:37px;margin-top: 15px;" ><img src="./Images/UI/Cash.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Money Per Round:
 								<input type="text" id="MoneyPerRound" style="width: 75px" value="DEFAULT"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in certain random missions and Deflation mode. This is used to change the amount of money you recieve at the end of round, you can also disable it with 0. It will not increase with the progressing rounds.')">
@@ -311,18 +311,18 @@
 						<p style="width: 340px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/CashPerPop.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Cash Per Pop Modifier:
 						<input type="text" id="CashPerPopModifier" style="width: 50px" value="NONE"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is not used anywhere (Double Cash is seperate). It changes the amount of cash you get from popping a bloon.')">
 						</p>
-						<p style="width: 290px; height: 37px;line-height:37px;height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/Sell.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Sell Price Modifier:
-								<input type="text" id="SellPriceModifier" style="width: 35px" value="0.8"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in difficulties. This multiples the amonunt of money of towers and upgardes cost by a value.')">
+						<p style="width: 300px; height: 37px;line-height:37px;height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/Sell.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Sell Price Modifier:
+								<input type="text" id="SellPriceModifier" style="width: 50px" value="NONE"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in difficulties. This multiples the amonunt of money of towers and upgardes cost by a value. Default value is 0.8. I think it overrides the lab upgrade.')">
 						</p>
 						<p style="background:#4A75B2;width: 320px; height: 37px;line-height:37px;margin-top: 0px;"><img src="./Images/UI/StartRound.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Pause Between Rounds: <input type="checkbox" checked id="PauseBetweenRounds" style="vertical-align:middle" onclick=""><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in Apocalypse mode. This forces the autoplay of rounds while still giving end of round cash.')"></p>
 						<p style="width: 240px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/RoundStep.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Round Step:
 						<input type="text" id="RoundStep" style="width: 50px" value="1.0"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('I\'m not sure where this used, but it increases/decreases(?) the amount of rounds that actually progress. For example a RoundStep value of 2.0 (starting at round 1) will run rounds 1, 3, 5, 7, etc...and a RoundStep value of 10.0 (starting at round 1) will run rounds 1, 10, 20,...etc. It calls the round 10 \'round 2\' in the Game UI at the Round: X/X portion.')">
 					    </p>
 					    <p style="width: 270px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/Speed.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Speed Modifier:
-						<input type="text" id="SpeedModifier" style="width: 50px" value="1.0"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('I\'m not sure where this used, but it increases/decreases(?) the amount of rounds that actually progress. For example a RoundStep value of 2.0 (starting at round 1) will run rounds 1, 3, 5, 7, etc...and a RoundStep value of 10.0 (starting at round 1) will run rounds 1, 10, 20,...etc. It calls the round 10 \'round 2\' in the Game UI at the Round: X/X portion.')">
+						<input type="text" id="SpeedModifier" style="width: 50px" value="NONE"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('I\'m not sure where this used, but it increases/decreases(?) the amount of rounds that actually progress. For example a RoundStep value of 2.0 (starting at round 1) will run rounds 1, 3, 5, 7, etc...and a RoundStep value of 10.0 (starting at round 1) will run rounds 1, 10, 20,...etc. It calls the round 10 \'round 2\' in the Game UI at the Round: X/X portion.')">
 					    </p>
 						<p style="background:#4A75B2;width: 310px; height: 37px;"><img src="./Images/UI/Up.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Towers Auto Upgrade: <input type="checkbox" id="TowersAutoUpgrade" style="vertical-align:middle" onclick=""><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in the Fast Upgrades mission. This upgrades towers on the path with the most upgrades once per round.')"></p>
-						<p style="background:#4A75B2;width: 495px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Consume Most Expensive Tower Rounds: <input type="text" id="RoundStep" style="width: 50px" value="NONE"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in the Wizard Lord special mission. This absorbs the most expensive tower at the end of X rounds.')"></p>
+						<p style="background:#4A75B2;width: 495px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Consume Most Expensive Tower Rounds: <input type="text" id="ConsumeMostExpensiveTowerRounds" style="width: 50px" value="NONE"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in the Wizard Lord special mission. This absorbs the most expensive tower at the end of X rounds.')"></p>
 						<p style="background:#4A75B2;width: 355px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/Monkey.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Free Towers Second Round: <input type="checkbox" id="FreeTowersSecondRound" style="vertical-align:middle" onclick=""><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in the MixNMatch event. This gives 1 of the next tower in the order every second round.')"></p>
 						<p style="width: 270px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/Timer.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Tower Lifespan:
 						<input type="text" id="TowerLifespan" style="width: 50px" value="NONE"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('Used in Short Lived special mission. Disables selling and instead makes towers disappear after a given time. This can be used to essentially disable selling.')">
@@ -332,17 +332,17 @@
 						<input type="text" id="LoseLivesTimer" style="width: 50px" value="NONE"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in the No Escape special mission. This enables the No Escape gimmick and is configured by the other \'Lose Lives\' options.')">
 						</p>
 						<p style="width: 300px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/Stopwatch.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Lose Lives Amount:
-						<input type="text" id="LoseLivesAmount" style="width: 50px" value="1"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in the No Escape special mission. This is how many lives are lost every time the LoseLivesTimer reaches it time.')">
+						<input type="text" id="LoseLivesAmount" style="width: 50px" value="NONE"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in the No Escape special mission. This is how many lives are lost every time the LoseLivesTimer reaches it time.')">
 						</p>
 						<p style="width: 345px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/UI/Stopwatch.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Lose Lives Grace Period:
-						<input type="text" id="LoseLivesGracePeriod" style="width: 50px" value="30"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in the No Escape special mission. This is the amount of time before the Lose Lives Timer begins running.')">
-						</p>
-						<p style="width: 245px; height: 37px;line-height:37px;margin-top: 10px;"> 
-						<img src="./Images/Bloon/Red.png" style="width: 23px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;<button style="vertical-align:middle" onclick="bloonranks()">Change Bloon Ranks</button>
+						<input type="text" id="LoseLivesGracePeriod" style="width: 50px" value="NONE"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;" class="inline" align="top" onclick="promptinfo('This is used in the No Escape special mission. This is the amount of time before the Lose Lives Timer begins running.')">
 						</p>
 						<p style="width: 220px; height: 37px;line-height:37px;margin-top: 10px;"><img src="./Images/Bloon/Red_Camo.png" style="width: 23px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Bloons Forced Camo: </p>
 						<div id = "bloons">
 						</div>
+						<p style="width: 245px; height: 37px;line-height:37px;margin-top: 10px;"> 
+						<img src="./Images/Bloon/Red.png" style="width: 23px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;<button style="vertical-align:middle" onclick="bloonranks()">Change Bloon Ranks</button>
+						</p>
 						<p> </p>
 						<button onclick="finished()">Finished</button>
 						<textarea id="output" rows="25" cols="75"></textarea> 
@@ -420,6 +420,9 @@ let challenge = {
 		LockedUpgrades:[],
 		MaxNumberOfEachTower:-1,
 		MaxNumberOfTotalTowers:-1,
+		ConsumeMostExpensiveTowerRounds:2,
+		FreeTowersSecondRound:false,
+		TowerLifespan:-1,
 		BloonsForcedCamo:[],
 		Reward:{
 			Tokens:0,
@@ -463,7 +466,7 @@ window.addEventListener('load',()=>{
 	makeBuildings();
 	makeSliders();
 	makeBloons();
-	//makeInventory();
+	makeInventory();
 });
 
 let makeSliders = ()=>{
@@ -553,7 +556,7 @@ let makeUpgrades = ()=>{
 		output.appendChild(newContainer);
 	});	
 }
-/*let makeInventory = ()=>{
+let makeInventory = ()=>{
 	let output = document.getElementById('inventory');
 	agentnames.forEach((u,i)=>{
 		let newContainer = document.createElement('div');
@@ -575,7 +578,7 @@ let makeUpgrades = ()=>{
 		});
 		output.appendChild(newContainer);
 	});	
-}*/
+}
 let makeLabUpgrades = ()=>{
 	let output = document.getElementById('labUpgrades');
 	labnames.forEach(l=>{
@@ -760,16 +763,9 @@ function changegiven(selected){
 	if(!limit){
 		limit = "0";
 	}
-
+	limit = parseInt(limit);
 	let type = agentnames[towerid];
 	let found = challenge.Setup.Inventory.find(u=>u.Type === type);
-       	if(found) found.Amount = limit;
-	else challenge.Setup.Inventory.push({
-		Amount:limit,
-		Type:type
-	})
-	type = agentnames[towerid] + "Pro";
-	found = challenge.Setup.Inventory.find(u=>u.Type === type);
        	if(found) found.Amount = limit;
 	else challenge.Setup.Inventory.push({
 		Amount:limit,
@@ -848,6 +844,60 @@ function updatedata(){
 	}
 	challenge.Rules.MaxNumberOfTotalTowers = document.getElementById("maxmonkeys").value;
 	challenge.Rules.MaxNumberOfEachTower = document.getElementById("maxeachmonkeys").value;
+	if(document.getElementById('TowerLifespan').value == "NONE"){
+		delete challenge.Rules.TowerLifespan;
+	} else {
+		challenge.Rules.TowerLifespan = document.getElementById('TowerLifespan').value;
+		//challenge.Rules.TowerLifespan = document.getElementById('TowerLifespan').value;
+	}
+	if(document.getElementById('ConsumeMostExpensiveTowerRounds').value == "NONE"){
+		delete challenge.Rules.ConsumeMostExpensiveTowerRounds;
+	} else {
+		challenge.Rules.ConsumeMostExpensiveTowerRounds = document.getElementById('ConsumeMostExpensiveTowerRounds').value;
+		//challenge.Rules.TowerLifespan = document.getElementById('TowerLifespan').value;
+	}
+	if(document.getElementById('MoneyPerRound').value == "DEFAULT"){
+		delete challenge.Rules.MoneyPerRound;
+	} else {
+		challenge.Rules.MoneyPerRound = document.getElementById('MoneyPerRound').value;
+		//challenge.Rules.TowerLifespan = document.getElementById('TowerLifespan').value;
+	}
+	if(document.getElementById('PriceModifier').value == "DEFAULT"){
+		delete challenge.Rules.PriceModifier;
+	} else {
+		challenge.Rules.PriceModifier = document.getElementById('PriceModifier').value;
+		//challenge.Rules.TowerLifespan = document.getElementById('TowerLifespan').value;
+	}
+	if(document.getElementById('SpeedModifier').value == "NONE"){
+		delete challenge.Rules.SpeedModifier;
+	} else {
+		challenge.Rules.SpeedModifier = document.getElementById('SpeedModifier').value;
+		//challenge.Rules.TowerLifespan = document.getElementById('TowerLifespan').value;
+	}
+	if(document.getElementById('LoseLivesTimer').value == "NONE"){
+		delete challenge.Rules.LoseLivesTimer;
+	} else {
+		challenge.Rules.LoseLivesTimer = document.getElementById('LoseLivesTimer').value;
+		//challenge.Rules.TowerLifespan = document.getElementById('TowerLifespan').value;
+	}
+	if(document.getElementById('LoseLivesAmount').value == "NONE"){
+		delete challenge.Rules.LoseLivesAmount;
+	} else {
+		challenge.Rules.LoseLivesAmount = document.getElementById('LoseLivesAmount').value;
+		//challenge.Rules.TowerLifespan = document.getElementById('TowerLifespan').value;
+	}
+	if(document.getElementById('LoseLivesGracePeriod').value == "NONE"){
+		delete challenge.Rules.LoseLivesGracePeriod;
+	} else {
+		challenge.Rules.LoseLivesGracePeriod = document.getElementById('LoseLivesGracePeriod').value;
+		//challenge.Rules.TowerLifespan = document.getElementById('TowerLifespan').value;
+	}
+	if(document.getElementById('SellPriceModifier').value == "NONE"){
+		delete challenge.Rules.SellPriceModifier;
+	} else {
+		challenge.Rules.SellPriceModifier = document.getElementById('SellPriceModifier').value;
+		//challenge.Rules.TowerLifespan = document.getElementById('TowerLifespan').value;
+	}
 }
 //what in the unholy fuck was this
 function finished(){
