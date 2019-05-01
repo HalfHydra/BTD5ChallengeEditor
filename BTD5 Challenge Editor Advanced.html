@@ -3,6 +3,8 @@
 	<head>  <meta charset="UTF-8"> <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
 <style>
 @font-face { font-family: btd5; src: url('./Font/Oetztype.ttf'); } 
+@font-face { font-family: arialreg; src: url('./Font/arialreg.ttf'); } 
+@font-face { font-family: LiberationSans; src: url('./Font/LiberationSans.ttf'); } 
 .modal {
 	display: none;
 	z-index: 1;
@@ -128,9 +130,13 @@
 	animation: fadeout 5.1s;
       -webkit-animation: fadeout 5.0s;
 }
-#headanim {
+.headanim {
 	animation: headanim 5.0s;
       -webkit-animation: headanim 5.0s;
+}
+.bottomanim {
+	animation: bottomanim 5.0s;
+      -webkit-animation: bottomanim 5.0s;
 }
 @keyframes scrollBanner {
      0% {
@@ -148,36 +154,75 @@
         opacity: 0;
     }
 }
+@keyframes bottomanim {
+    0% {
+        opacity:0;
+    }
+    21%{
+    	opacity: 0;
+    }
+    22% {
+        opacity:1;
+    }
+    25%{
+    	opacity: 1;
+    	content: "Unleashing Monkey Sun God... - downloading";
+    }
+    35%{
+    	content: "Downloading New Content - downloading";
+    }
+    45%{
+    	content: "Downloading New Content - 100% - 0/0";
+    }
+    55%{
+    	content: "Training Monkeys... - downloading";
+    }
+    60%{
+    	content: "Collecting Bananas... - downloading";
+    }
+    65%{
+    	content: "Preparing Darts... - downloading";
+    }
+    70%{
+    	content: "Taking Off - finished";
+    }
+    90% {
+    	opacity:1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 @keyframes headanim {
      0% {
         opacity:0;
     }
-    29%{
+    21%{
     	opacity: 0;
     }
-    30% {
+    22% {
         opacity:1;
     }
-    35%{
+    25%{
     	opacity: 1;
     	content: "Step 2 of 8";
     }
-    45%{
+    35%{
     	content: "Step 3 of 8";
     }
-    55%{
+    45%{
     	content: "Step 4 of 8";
     }
-    65%{
+    55%{
     	content: "Step 5 of 8";
     }
-    75%{
+    60%{
     	content: "Step 6 of 8";
     }
-    85%{
+    65%{
     	content: "Step 7 of 8";
     }
-    87%{
+    70%{
     	content: "Step 8 of 8";
     }
     90% {
@@ -333,7 +378,7 @@ tr {
 		</head>
 	</img>
 	<div class ="fadeout" id="loading" style="width:100%; height:100%;display:block;background-color: #9BE9FE;">
-		<img class="transition" src="./Images/UI/Loading/MonkasAce.gif" style= "left:-250px;margin: 0;position: absolute; max-width: 250px;max-height: 250px;top: 40%;"><h1 id="headanim" class="headanim" style="width:350px;height:250px;transform: translate(-40%,-10%);position: absolute;left: 40%;top:50%;font-size: 50px;font-family:'Luckiest Guy';margin: 0;display: inline-block;color: white;">Step 1 of 8</h1></img>
+		<img class="transition" src="./Images/UI/Loading/MonkasAce.gif" style= "left:-250px;margin: 0;position: absolute; max-width: 250px;max-height: 250px;top: 40%;"><h1 id="headanim" class="headanim" style="width:350px;height:250px;transform: translate(-40%,-10%);position: absolute;left: 40%;top:50%;font-size: 50px;font-family:'Luckiest Guy';margin: 0;display: inline-block;color: white;">Step 1 of 8</h1><h2 id="bottomanim" class="bottomanim" style="text-align: center;width:750px;height:25px;transform: translate(-50%,-50%);position: absolute;left: 50%;display:inline-block;top:90%;font-size: 25px; font: 25px arial, sans-serif;margin: 0;display: inline-block;color: #82B8C6;">Unleashing Monkey Sun God</h2></img>
 	</div>
 	<body bgcolor="#5A8FD5"  style="width:100%; height:100%">
 		<!--<img src="./Images/UI/benbtn.png" style="position: absolute;top: 0;padding: 7px;right: 0%;border:0;margin-left: auto;margin-right: auto;" onclick="advancedmode()">-->
@@ -542,6 +587,13 @@ setTimeout(function(){ document.getElementById('headanim').innerHTML = "Step 5 o
 setTimeout(function(){ document.getElementById('headanim').innerHTML = "Step 6 of 8";  },3800);
 setTimeout(function(){ document.getElementById('headanim').innerHTML = "Step 7 of 8";  },4000);
 setTimeout(function(){ document.getElementById('headanim').innerHTML = "Step 8 of 8";  },4500);
+setTimeout(function(){ document.getElementById('bottomanim').innerHTML = "Unleashing Monkey Sun God... - downloading";  },3000);
+setTimeout(function(){ document.getElementById('bottomanim').innerHTML = "Downloading New Content - downloading";  },3200);
+setTimeout(function(){ document.getElementById('bottomanim').innerHTML = "Downloading New Content - 100% - 0/0";  },3400);
+setTimeout(function(){ document.getElementById('bottomanim').innerHTML = "Training Monkeys... - downloading";  },3600);
+setTimeout(function(){ document.getElementById('bottomanim').innerHTML = "Collecting Bananas... - downloading";  },3800);
+setTimeout(function(){ document.getElementById('bottomanim').innerHTML = "Preparing Darts... - downloading";  },4000);
+setTimeout(function(){ document.getElementById('bottomanim').innerHTML = "Taking a Break - finished";  },4500);
 let challenge = {
 	Rules:{
 		BlockedLabUpgrades:[],
