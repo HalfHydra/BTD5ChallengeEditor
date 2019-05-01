@@ -806,11 +806,13 @@ function upgradelock(selected){
     var left = limit.substring(0,1);
     var right = limit.substring(2);
 	if(!left){
-		left = "4";
+		left = 4;
 	}
 	if(!right){
-		right = "4";
+		right = 4;
 	}
+	left = parseInt(left);
+	right = parseInt(right);
 	let type = towernames[towerid];
 	let found = challenge.Rules.LockedUpgrades.find(u=>u.Type === type);
        	if(found) found.Upgrades = [left,right];
