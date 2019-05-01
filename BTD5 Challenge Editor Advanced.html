@@ -119,6 +119,85 @@
     background: url('./Images/UI/sliderbtn.png');
     cursor: pointer;
 }
+.transition {
+	animation: scrollBanner 5.1s;
+      -webkit-animation: scrollBanner 4.8s;
+      width:100%; height:100%;
+}
+.fadeout {
+	animation: fadeout 5.1s;
+      -webkit-animation: fadeout 5.0s;
+}
+#headanim {
+	animation: headanim 5.0s;
+      -webkit-animation: headanim 5.0s;
+}
+@keyframes scrollBanner {
+     0% {
+        left: -250px;
+    }
+    27% {
+        left: 55%;
+    }
+    90% {
+    	left: 55%;
+    	opacity: 1;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+@keyframes headanim {
+     0% {
+        opacity:0;
+    }
+    29%{
+    	opacity: 0;
+    }
+    30% {
+        opacity:1;
+    }
+    35%{
+    	opacity: 1;
+    	content: "Step 2 of 8";
+    }
+    45%{
+    	content: "Step 3 of 8";
+    }
+    55%{
+    	content: "Step 4 of 8";
+    }
+    65%{
+    	content: "Step 5 of 8";
+    }
+    75%{
+    	content: "Step 6 of 8";
+    }
+    85%{
+    	content: "Step 7 of 8";
+    }
+    87%{
+    	content: "Step 8 of 8";
+    }
+    90% {
+    	opacity:1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes fadeout {
+     0% {
+        opacity: 1;
+    }
+    95% {
+    	opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 	p {
 		font-family: btd5;
 		color: white;
@@ -251,20 +330,24 @@ tr {
     color: white;
 }
 		</style>
-	</head>
-	<body bgcolor="#5A8FD5"  style="width:750px; height:100px;">
+		</head>
+	</img>
+	<div class ="fadeout" id="loading" style="width:100%; height:100%;display:block;background-color: #9BE9FE;">
+		<img class="transition" src="./Images/UI/Loading/MonkasAce.gif" style= "left:-250px;margin: 0;position: absolute; max-width: 250px;max-height: 250px;top: 40%;"><h1 id="headanim" class="headanim" style="width:350px;height:250px;transform: translate(-40%,-10%);position: absolute;left: 40%;top:50%;font-size: 50px;font-family:'Luckiest Guy';margin: 0;display: inline-block;color: white;">Step 1 of 8</h1></img>
+	</div>
+	<body bgcolor="#5A8FD5"  style="width:100%; height:100%">
 		<!--<img src="./Images/UI/benbtn.png" style="position: absolute;top: 0;padding: 7px;right: 0%;border:0;margin-left: auto;margin-right: auto;" onclick="advancedmode()">-->
-						<div class="content">
+						<div id="main" class="content" style="visibility: hidden;display:none;">
 						<div style="width: 750px;height: 590px;">
 							<div style="background:#34547F;border-radius:5px;border:2px solid #2B466A; width: 590px; height: 290px;margin-top: 10px;">
-							<p style="background:#4A75B2;width: 250px; height: 37px;line-height:37px;margin-top: 10px;margin-left: 7px;"><img src="./Images/UI/Buttons/Written.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Challenge ID:
-							<input type="text" id="id" style="background-color: #436FA8;width: 50px;" oninput="changeid()" value="ID">
+							<p style="background:#4A75B2;width: 250px; height: 37px;line-height:37px;margin-top: 10px;margin-left: 7px;"><img src="./Images/UI/Text.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Challenge ID:
+							<input type="text" id="id" style="background-color: #436FA8;width: 50px;" oninput="changeid()" value="ID"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;margin-left: 3px;" class="inline" align="top" onclick="promptinfo('This doesn\'t do anything but add one anyway to help manage your challenges if you make multiple.')">
 							</p>
-							<p style="background:#4A75B2;width: 500px; height: 37px;line-height:37px;margin-top: 10px;margin-left: 7px;"><img src="./Images/UI/Buttons/Written.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Challenge Name:
-							<input type="text" id="name" style="background-color: #436FA8;width: 300px;" oninput="changename()" value="Name">
+							<p style="background:#4A75B2;width: 530px; height: 37px;line-height:37px;margin-top: 10px;margin-left: 7px;"><img src="./Images/UI/Text.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Challenge Name:
+							<input type="text" id="name" style="background-color: #436FA8;width: 300px;" oninput="changename()" value="Name"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;margin-left: 3px;" class="inline" align="top" onclick="promptinfo('For anyone who actually wants to use this challenge in game, just a standard name will not work. You need to add a LOC_MIS_[ID]_NAME title to \'English.xml\'.)">
 							</p>
-							<p style="background:#4A75B2;width: 545px; height: 37px;line-height:37px;margin-top: 10px;margin-left: 7px;"><img src="./Images/UI/Buttons/Written.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Challenge Description:
-							<input type="text" id="description" style="background-color: #436FA8;width: 300px;" oninput="changedescription()" value="Description">
+							<p style="background:#4A75B2;width: 575px; height: 37px;line-height:37px;margin-top: 10px;margin-left: 7px;"><img src="./Images/UI/Text.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Challenge Description:
+							<input type="text" id="description" style="background-color: #436FA8;width: 300px;" oninput="changedescription()" value="Description"><img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;margin-left: 3px;" class="inline" align="top" onclick="promptinfo('For anyone who actually wants to use this challenge in game, just a standard description will not work. You need to add a LOC_MIS_[ID]_DESC title to \'English.xml\'.)">
 							</p>
 							<p style="background:#4A75B2;width: 212px; height: 37px;line-height:37px;margin-top: 10px;margin-left: 7px;"><img src="./Images/UI/Buttons/RankRequired.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Rank Required:
 							<input type="text" id="rank" style="background-color: #436FA8;width: 30px;" oninput="changerank()" value="20">
@@ -448,6 +531,17 @@ var modal = document.getElementById('modal');
 var modal2 = document.getElementById('modal2');
 var span = document.getElementsByClassName("close")[0];
 var span2 = document.getElementsByClassName("close2")[0];
+setTimeout(function(){ document.getElementById('loading').style.visibility = "hidden" 
+document.getElementById('loading').style.display = "none"  },5000);
+setTimeout(function(){document.getElementById('main').style.visibility = "visible";
+document.getElementById('main').style.display = "block";},5000);
+setTimeout(function(){ document.getElementById('headanim').innerHTML = "Step 2 of 8";  },3000);
+setTimeout(function(){ document.getElementById('headanim').innerHTML = "Step 3 of 8";  },3200);
+setTimeout(function(){ document.getElementById('headanim').innerHTML = "Step 4 of 8";  },3400);
+setTimeout(function(){ document.getElementById('headanim').innerHTML = "Step 5 of 8";  },3600);
+setTimeout(function(){ document.getElementById('headanim').innerHTML = "Step 6 of 8";  },3800);
+setTimeout(function(){ document.getElementById('headanim').innerHTML = "Step 7 of 8";  },4000);
+setTimeout(function(){ document.getElementById('headanim').innerHTML = "Step 8 of 8";  },4500);
 let challenge = {
 	Rules:{
 		BlockedLabUpgrades:[],
@@ -460,6 +554,8 @@ let challenge = {
 		MaxNumberOfEachTower:-1,
 		MaxNumberOfTotalTowers:-1,
 		TowerLifespan:-1,
+		AllowContinueOnGameOver:true,
+		AllowRetryOnGameOver:true,
 		BloonsForcedCamo:[],
 		CashRoundModifiers:[],
 		Reward:{
