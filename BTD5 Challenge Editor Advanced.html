@@ -334,7 +334,7 @@ tr {
 		</head>
 	</img>
 	<div class ="fadeout" id="loading" style="width:100%; height:100%;display:block;background-color: #9BE9FE;">
-		<img class="transition" src="./Images/UI/Loading/MonkasAce.gif" style= "left:-250px;margin: 0;position: absolute; max-width: 250px;max-height: 250px;top: 40%;"><h1 id="headanim" class="headanim" style="width:350px;height:250px;transform: translate(-40%,-10%);position: absolute;left: 40%;top:50%;font-size: 50px;font-family:'Luckiest Guy';margin: 0;display: inline-block;color: white;">Step 1 of 8</h1><h2 id="bottomanim" class="bottomanim" style="text-align: center;width:750px;height:25px;transform: translate(-50%,-50%);position: absolute;left: 50%;display:inline-block;top:90%;font-size: 25px; font: 25px arial, sans-serif;margin: 0;display: inline-block;color: #82B8C6;">Unleashing Monkey Sun God</h2></img>
+		<img class="transition" src="./Images/UI/Loading/MonkasAce.gif" style= "left:-250px;margin: 0;position: absolute; max-width: 250px;max-height: 250px;top: 50%;transform: translate(0%,-50%);"><h1 id="headanim" class="headanim" style="width:350px;height:250px;transform: translate(-40%,-10%);position: absolute;left: 40%;top:50%;font-size: 50px;font-family:'Luckiest Guy';margin: 0;display: inline-block;color: white;">Step 1 of 8</h1><h2 id="bottomanim" class="bottomanim" style="text-align: center;width:750px;height:25px;transform: translate(-50%,-50%);position: absolute;left: 50%;display:inline-block;top:90%;font-size: 25px; font: 25px arial, sans-serif;margin: 0;display: inline-block;color: #82B8C6;">Unleashing Monkey Sun God</h2></img>
 	</div>
 	<body bgcolor="#5A8FD5"  style="width:100%; height:100%">
 		<!--<img src="./Images/UI/benbtn.png" style="position: absolute;top: 0;padding: 7px;right: 0%;border:0;margin-left: auto;margin-right: auto;" onclick="advancedmode()">-->
@@ -540,9 +540,9 @@ var modal2 = document.getElementById('modal2');
 var span = document.getElementsByClassName("close")[0];
 var span2 = document.getElementsByClassName("close2")[0];
 setTimeout(function(){ document.getElementById('loading').style.visibility = "hidden" 
-document.getElementById('loading').style.display = "none"  },10);
+document.getElementById('loading').style.display = "none"  },5000);
 setTimeout(function(){document.getElementById('main').style.visibility = "visible";
-document.getElementById('main').style.display = "block";},10);
+document.getElementById('main').style.display = "block";},5000);
 setTimeout(function(){ document.getElementById('headanim').innerHTML = "Step 2 of 8";  },3000);
 setTimeout(function(){ document.getElementById('headanim').innerHTML = "Step 3 of 8";  },3200);
 setTimeout(function(){ document.getElementById('headanim').innerHTML = "Step 4 of 8";  },3400);
