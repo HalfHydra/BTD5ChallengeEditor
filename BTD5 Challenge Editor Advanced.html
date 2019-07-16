@@ -354,8 +354,8 @@ tr {
 							<input type="text" id="rank" style="background-color: #436FA8;width: 30px;" oninput="changerank()" value="20">
 							</p>
 							<p style="background:#4A75B2;width: 167px; height: 37px;margin-left: 7px;"><img src="./Images/UI/Save.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Can Save: <input type="checkbox" id="CanSave" oninput="changesave()" style="vertical-align:middle" onclick=""></p>
-						<p style="background:#4A75B2;width: 230px; height: 37px;margin-left: 7px;"><img src="./Images/UI/Buttons/Continue.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Allow Continues: <input type="checkbox" id="CanContinue" oninput="changecontinue()" style="vertical-align:middle" checked onclick=""></p>
-						<p style="background:#4A75B2;width: 205px; height: 37px;margin-left: 7px;"><img src="./Images/UI/Buttons/Restart.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Allow Retries: <input type="checkbox" id="CanRetry" oninput="changeretry()" style="vertical-align:middle" checked onclick=""></p>
+						<p style="background:#4A75B2;width: 230px; height: 37px;margin-left: 7px;"><img src="./Images/UI/Buttons/Continue.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Allow Continues: <input type="checkbox" id="CanContinue" oninput="changecontinue()" style="vertical-align:middle" onclick=""></p>
+						<p style="background:#4A75B2;width: 205px; height: 37px;margin-left: 7px;"><img src="./Images/UI/Buttons/Restart.png" style="width: 30px; height: 30px;vertical-align:middle" class="inline" align="top">&nbsp;Allow Retries: <input type="checkbox" id="CanRetry" oninput="changeretry()" style="vertical-align:middle" onclick=""></p>
 						<p style="background:#4A75B2;width: 155px; height: 50px;margin-top: -87px;margin-left: 328px;">&nbsp;Change Editor &nbsp;Layout: <img src="./Images/UI/Info.png" style="width: 30px; height: 30px;vertical-align:middle;margin-left: 3px;" class="inline" align="top" onclick="promptinfo('All this does is make the challenge JSON appear on the left side, but for some phones and small windows it will block the actual settings, hence this button to revert to that if you prefer watching your text update as you go.')"></p><img src="./Images/UI/Buttons/SwapLayout.png" style="width: 75px; height: 75px;vertical-align:middle;margin-top: -100px;margin-left: 500px;" class="inline" onclick="changelayout()"></p>
 							</div>
 						
@@ -554,14 +554,14 @@ setTimeout(function(){ document.getElementById('bottomanim').innerHTML = "Unleas
 setTimeout(function(){ document.getElementById('bottomanim').innerHTML = "Downloading New Content - downloading";  },2500);
 setTimeout(function(){ document.getElementById('bottomanim').innerHTML = "Downloading New Content - 0.00% - 0/248";  },2600);
 var perc = 0;
-/*for(var j=2600;j<3600;j=j+10){
+for(var j=2600;j<3600;j=j+10){
 	perc = perc + 0.01;
 	var average = perc * 248;
 	var p2 = perc * 100;
 	var p3 = p2.toPrecision(3);
 	var a = average.toPrecision(3);
 	console.log("setTimeout(function(){  document.getElementById(\'bottomanim\').innerHTML = \"Downloading New Content - " + p3 + "% - " + a + "/248\";  }," + j +");");
-}*/
+}
 setTimeout(function(){  document.getElementById('bottomanim').innerHTML = "Downloading New Content - 1.00% - 2/248";  },2601);
 setTimeout(function(){  document.getElementById('bottomanim').innerHTML = "Downloading New Content - 2.00% - 5/248";  },2610);
 setTimeout(function(){  document.getElementById('bottomanim').innerHTML = "Downloading New Content - 3.00% - 7/248";  },2620);
